@@ -14,10 +14,8 @@ const Hero = ({ title, description }) => {
             <hr className="h-separator" />
             <p className="hero-description">{description}</p>
             <section className="hero-buttons">
-              <Button href="#services">Read More</Button>
-              <Link to="projects/#project">
-                <Button outline>Projects</Button>
-              </Link>
+              <Button href="#services">Our Services</Button>
+              <Button href="#quote" outline>Request a Quote</Button>
             </section>
           </main>
         </Container>
