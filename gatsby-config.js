@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `TP Construction`,
-    fullTitle: `TANPEL CONSTRUCTION`,
+    title: `Bradley Brown Inc`,
+    fullTitle: `Bradley Brown Inc "Custom Home Builder"`,
     description: `Listen better | Plan better | Build better.`,
     about: `Since our incorporation in 1981, we've grown from a regional organization to a multi-faceted, national presence in the industry with headquarters in New York.`,
     email: `info@tanpelconstruction.com`,
@@ -34,11 +34,11 @@ module.exports = {
     },
 
     author: {
-      name: `Mark Dino Pelonia`,
-      position: `Web Developer`,
-      email: `markdinopelonia447@gmail.com`,
-      contact: `(+63) 946 290 9678`,
-      website: `https://markdino.github.io/portfolio`,
+      name: `Corey Hughes`,
+      position: `Owner`,
+      email: `corey@verticalconsulting.net`,
+      contact: `(601) 506-8818)`,
+      website: `https://verticalconsulting.net`,
     },
   },
   plugins: [
@@ -53,6 +53,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-layout`,
