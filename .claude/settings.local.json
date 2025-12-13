@@ -12,7 +12,8 @@
       "Bash(git credential-manager:*)",
       "Bash(printf:*)",
       "Bash(gh auth:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(gh repo view:*)"
     ]
   }
 }
