@@ -11,19 +11,19 @@ import Ruler from "../images/icons/icon-ruler-45x71.png"
 const Services = () => {
   const card = [
     {
-      title: `Custom Home Builds`,
+      title: `Whole House Remodeling`,
       icon: Bulldozer,
-      description: `From concept to completion, we create exceptional custom homes tailored to your unique vision. Our meticulous attention to detail ensures every element reflects superior craftsmanship.`,
+      description: `Complete home transformations that bring your vision to life. We specialize in comprehensive remodeling projects that enhance both beauty and functionality.`,
     },
     {
-      title: `Kitchen Remodeling`,
+      title: `Kitchen Remodels`,
       icon: Tassels,
-      description: `Transform your kitchen into a masterpiece of form and function. We specialize in high-end kitchen renovations that blend luxury, innovation, and timeless design.`,
+      description: `Transform your kitchen into the heart of your home with custom designs and quality craftsmanship. From modern updates to complete renovations.`,
     },
     {
-      title: `Bath Remodeling`,
+      title: `Bathroom Remodels`,
       icon: Ruler,
-      description: `Create your personal spa retreat with our premium bathroom remodeling services. We deliver elegant, sophisticated spaces with the finest materials and expert craftsmanship.`,
+      description: `Upgrade your bathroom with modern fixtures, beautiful tile work, and functional layouts. Creating spaces you'll love for years to come.`,
     },
   ]
   return (

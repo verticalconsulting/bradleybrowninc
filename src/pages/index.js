@@ -3,8 +3,7 @@ import { graphql } from "gatsby"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 // ---------- Themes colors ----------
-import "../themes/green.scss"
-import "../themes/orange.scss"
+import "../themes/blue.scss"
 
 // ---------- Components ----------
 import Hero from "../components/hero"

@@ -33,13 +33,14 @@ const ContactPage = () => {
             telephone
           }
           address
+          serviceAreas
           map
         }
       }
     }
   `)
 
-  const { title, email, social, contact, address, map } = data.site.siteMetadata
+  const { title, email, social, contact, address, serviceAreas, map } = data.site.siteMetadata
   return (
     <section id="contact">
       <PageHeader title="Contact" />
@@ -51,9 +52,9 @@ const ContactPage = () => {
                 Get in Touch
               </h2>
               <p className="contact-description font-size-90 text-center text-muted mb-4">
-                We are available by fax, e-mail or by phone. You can also use
-                our quick contact form to ask a question about our services and
-                projects we’re working on.
+                No job is too big, or too small! As a licensed and insured builder,
+                we're here to help with all your home remodeling needs. Contact us
+                by phone, email, or use our quick contact form below.
               </p>
               <form
                 name="contact"
@@ -180,11 +181,19 @@ const ContactPage = () => {
                     <Mail className="stroke-svg stroke-color" /> {email}
                   </Row>
                 </section>
-                <section className="address mb-4 pb-4">
+                <section className="address border-bottom mb-4 pb-4">
                   <p className="text-uppercase font-weight-bold">Address</p>
                   <Row className="ml-0 flex-nowrap">
                     <Pin className="fill-svg fill-color" /> <p>{address}</p>
                   </Row>
+                </section>
+                <section className="service-areas mb-4 pb-4">
+                  <p className="text-uppercase font-weight-bold">Service Areas</p>
+                  <ul className="ml-0 pl-3">
+                    {serviceAreas && serviceAreas.map((area, index) => (
+                      <li key={index} className="text-muted">{area}</li>
+                    ))}
+                  </ul>
                 </section>
               </aside>
             </Col>
