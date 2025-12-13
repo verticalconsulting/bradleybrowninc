@@ -14,34 +14,29 @@ import Helmet from "../images/icons/icon-helmet-67x65.png"
 const ServicesPage = () => {
   const card = [
     {
-      title: `Construction`,
-      icon: Bulldozer,
-      description: `We provide high-quality construction services to the energy, water and telecommunications markets.`,
-    },
-    {
-      title: `Remodeling`,
+      title: `Kitchen Remodels`,
       icon: Tassels,
-      description: `Our team of experts has years of experience in remodeling homes including kitchens, basements etc.`,
+      description: `Transform your kitchen into the heart of your home with custom designs and quality craftsmanship.`,
     },
     {
-      title: `Interior Design`,
+      title: `Bathroom Remodels`,
       icon: Ruler,
-      description: `Our interior design services are the best way to get a home design that completely fits you and your lifestyle.`,
+      description: `Upgrade your bathroom with modern fixtures, beautiful tile work, and functional layouts.`,
     },
     {
-      title: `Contracting`,
-      icon: Suitcase,
-      description: `Top Project can manage and hire subcontractors while acting as the main contact with construction clients.`,
+      title: `Whole House Remodeling`,
+      icon: Bulldozer,
+      description: `Complete home transformations that bring your vision to life, from concept to completion.`,
     },
     {
-      title: `Preconstruction`,
-      icon: Relues,
-      description: `Preconstruction involves performing preliminary planning and engineering in order to define the project.`,
-    },
-    {
-      title: `Green Building`,
+      title: `Additions`,
       icon: Helmet,
-      description: `Green building has a highly reduced effect on environment, and is used in almost every project of our company.`,
+      description: `Expand your living space with custom additions that seamlessly blend with your existing home.`,
+    },
+    {
+      title: `Minor Repairs`,
+      icon: Suitcase,
+      description: `Professional repair services for all your home maintenance needs, big or small. No job is too small!`,
     },
   ]
   return (
