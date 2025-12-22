@@ -3,10 +3,20 @@ import { Container } from "reactstrap"
 import { Button } from "reactstrap"
 import { Link } from "gatsby"
 import "./hero.scss"
+import companyVideo from "../images/company.mp4"
 
 const Hero = ({ title, description }) => {
   return (
     <div className="hero" id="hero">
+      <video
+        className="hero-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src={companyVideo} type="video/mp4" />
+      </video>
       <section className="h-100 d-flex align-items-center text-center bg-dark-40">
         <Container>
           <main className="hero-content">

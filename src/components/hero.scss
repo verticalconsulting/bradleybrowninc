@@ -1,9 +1,28 @@
 .hero {
-  background-image: url("../images/bg.jpg"); /*Wallpaper by desktopwalls.net*/
-  background-attachment: fixed;
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  background-image: url("../images/bg.jpg"); /*Fallback background*/
   background-size: cover;
   background-position: center center;
-  height: 90vh;
+
+  .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+  }
+
+  section {
+    position: relative;
+    z-index: 1;
+  }
 
   .hero-content {
     .title {
