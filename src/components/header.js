@@ -67,15 +67,6 @@ class Header extends Component {
                   <Link
                     className="nav-link"
                     activeStyle={{ fontWeight: "bold" }}
-                    to="/careers/#careers"
-                  >
-                    Careers
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link
-                    className="nav-link"
-                    activeStyle={{ fontWeight: "bold" }}
                     to="/about/#about"
                   >
                     About Us

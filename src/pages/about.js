@@ -20,10 +20,10 @@ const AboutPage = () => {
   const { title, fullTitle } = data.site.siteMetadata
 
   const aboutContent = [
-    `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea molestias incidunt reprehenderit. Aliquam harum laboriosam reprehenderit delectus nostrum iste in ullam perspiciatis! Doloremque quibusdam quo quas deleniti. Libero tempore nobis autem pariatur, cumque sunt dolor consequuntur sit velit! Voluptates ea sequi vitae distinctio voluptatem. Quis, tenetur necessitatibus? Dicta, perferendis provident?`,
-    `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem nisi esse dolorum architecto, id et illo, mollitia consectetur eaque debitis enim ea facere provident aperiam repellat nam natus molestiae expedita?`,
-    `Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptatibus cumque incidunt vero corporis architecto vel voluptas optio nemo, cum repellendus, doloremque, voluptates sit? Sit facilis, minus odio tempora dicta distinctio expedita ipsa alias ipsam fuga, nulla dolor, quos ut molestias quia?`,
-    `Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ipsa officiis aperiam suscipit quaerat non reprehenderit sapiente hic, odit, praesentium dolorem veritatis. Velit dolorum accusamus debitis blanditiis? Ad officia corporis optio neque quaerat dolore, incidunt, ducimus facilis quo ratione, dicta quos voluptatibus ab consequatur unde debitis quibusdam! Temporibus, dolor pariatur ipsa eaque assumenda nesciunt nam! Ab rem ex iusto aut.`,
+    `Bradley Brown Inc is owned and operated by Brad Brown, a seasoned professional with decades of experience in the construction industry. From custom home building to complete remodels, and just about everything under the sun related to construction, Brad has seen and done it all.`,
+    `What sets Bradley Brown Inc apart is the unwavering commitment to quality and attention to detail. Brad treats every project as if it were his own home, ensuring that every nail, board, and finish meets the highest standards of craftsmanship. This personal approach means you're not just hiring a contractor—you're partnering with someone who genuinely cares about the outcome.`,
+    `While Bradley Brown Inc may not always be the cheapest option, clients consistently find that the investment is worth it. The company delivers fine craftsmanship that is built to last, using quality materials and proven techniques that stand the test of time. Whether it's a kitchen remodel, bathroom renovation, home addition, or minor repair, you can count on work that exceeds expectations.`,
+    `Serving Rankin, Madison, Hinds, and Scott Counties in Mississippi, Bradley Brown Inc has built a reputation for reliability, integrity, and exceptional workmanship. No job is too big or too small—from minor repairs to complete home transformations, every project receives the same level of dedication and expertise.`,
   ]
   return (
     <section id="about">
@@ -48,27 +48,19 @@ const AboutPage = () => {
             <Col md="6">
               <AboutCard title="Mission">
                 <p>
-                  <strong>{fullTitle} </strong>Ipsum dolor sit amet consectetur
-                  adipisicing elit. Ullam quisquam ratione et sint, quos
-                  dolores, corporis debitis minus, vitae officia adipisci ipsa
-                  fugiat est dolorum eum optio blanditiis quas doloribus hic
-                  saepe dicta fugit exercitationem. Sed, recusandae atque nobis
-                  facilis voluptates, dolores quaerat aspernatur dolorem iusto
-                  autem, facere ipsa. Fugiat
+                  <strong>{fullTitle}</strong>'s mission is to deliver exceptional craftsmanship and personalized service to homeowners throughout Central Mississippi. We are committed to:
                 </p>
                 <ol>
-                  <li>Providing awesome customer service to our clients.</li>
+                  <li>Treating every project with the care and attention we would give our own home.</li>
                   <li>
-                    Providing a mixture of services to a variety of industries
-                    and geographical locations.
+                    Building lasting relationships with clients through honest communication and reliable service.
                   </li>
                   <li>
-                    Continually improving communications with our customers and
-                    between departments.
+                    Using quality materials and proven construction techniques that stand the test of time.
                   </li>
-                  <li>Providing training for personnel’s enhancement.</li>
+                  <li>Maintaining the highest standards of professionalism and craftsmanship in every job.</li>
                   <li>
-                    Recruiting and hiring only those who share our vision.
+                    Serving our communities with integrity, from small repairs to complete home transformations.
                   </li>
                 </ol>
               </AboutCard>
@@ -76,27 +68,19 @@ const AboutPage = () => {
             <Col md="6">
               <AboutCard title="Vision">
                 <p>
-                  Ipsum dolor sit amet consectetur adipisicing elit. Ullam
-                  quisquam ratione et sint, quos dolores, corporis debitis
-                  minus, vitae officia adipisci ipsa fugiat est dolorum eum
-                  optio blanditiis quas doloribus hic saepe dicta fugit
-                  exercitationem. Sed, recusandae atque nobis facilis
-                  voluptates, <strong>{fullTitle} </strong>
-                  dolores quaerat aspernatur dolorem iusto autem, facere ipsa.
+                  Our vision is to be Central Mississippi's most trusted name in custom home building and remodeling. <strong>{fullTitle}</strong> aspires to be recognized not just for the quality of our work, but for the relationships we build and the care we bring to every project. We envision a future where every homeowner knows they can count on us for honest advice, superior craftsmanship, and work that truly lasts.
                 </p>
               </AboutCard>
               <AboutCard title="Core Values">
                 <p>
-                  Ipsum dolor sit amet consectetur adipisicing elit. Ullam
-                  quisquam ratione et sint, quos dolores, corporis debitis
-                  minus, vitae officia adipisci ipsa fugiat est{" "}
-                  <strong>{title} </strong>dolorum eum optio blanditiis quas
-                  doloribus hic saepe dicta fugit exercitationem.
+                  At <strong>{title}</strong>, our core values guide everything we do. These principles are the foundation of how we work and how we serve our clients:
                 </p>
                 <ul>
-                  <li>Professionalism</li>
-                  <li>Commitment</li>
-                  <li>Integrity</li>
+                  <li>Quality Craftsmanship - Built to last</li>
+                  <li>Attention to Detail - Every project matters</li>
+                  <li>Integrity - Honest and reliable service</li>
+                  <li>Personal Care - Treating your home as our own</li>
+                  <li>Customer Satisfaction - Your vision, our expertise</li>
                 </ul>
               </AboutCard>
             </Col>

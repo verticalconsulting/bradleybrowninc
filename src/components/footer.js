@@ -138,14 +138,14 @@ const Footer = ({ siteMetadata }) => {
           </Row>
         </Container>
         <Row className="footer-credits justify-content-center">
-          {` ${title} © 2019 || Code and design by: `} &nbsp;
+          {` ${title} © 2019 || Designed by: `} &nbsp;
           <a
-            href={author.website}
+            href="https://verticalconsulting.net"
             target="_blank"
             rel="noopener noreferrer"
-            title={author.position}
+            title="Web Design"
           >
-            {author.name}
+            Five Hughes LLC
           </a>
         </Row>
       </section>
