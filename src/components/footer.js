@@ -16,11 +16,11 @@ import TwitterSVG from "../assets/svg/twitter.svg"
 import InstagramSVG from "../assets/svg/instagram.svg"
 import LinkedinSVG from "../assets/svg/linkedin.svg"
 
-import ISO9001 from "../images/badge/ISO-9001.png"
-import ISO14001 from "../images/badge/ISO-14001.png"
-import ISO45001 from "../images/badge/ISO-45001.png"
-import PCAB from "../images/badge/pcab.png"
-import PCA from "../images/badge/pca.png"
+import MSHBA from "../images/badge/mshba.png"
+import NAHB from "../images/badge/nahb.png"
+import BBB from "../images/badge/bbb.png"
+import MSContractor from "../images/badge/ms-contractor.png"
+import Licensed from "../images/badge/licensed-insured.png"
 
 const Footer = ({ siteMetadata }) => {
   const {
@@ -34,11 +34,11 @@ const Footer = ({ siteMetadata }) => {
     author,
   } = siteMetadata
   const badges = [
-    { img: ISO14001, alt: "ISO-14001" },
-    { img: ISO9001, alt: "ISO-9001" },
-    { img: ISO45001, alt: "ISO-45001" },
-    { img: PCAB, alt: "PCAB LICENSE" },
-    { img: PCA, alt: "PCA" },
+    { img: MSHBA, alt: "Mississippi Home Builders Association" },
+    { img: NAHB, alt: "National Association of Home Builders" },
+    { img: BBB, alt: "Better Business Bureau Accredited" },
+    { img: MSContractor, alt: "Mississippi State Board of Contractors" },
+    { img: Licensed, alt: "Licensed & Insured" },
   ]
   return (
     <footer>

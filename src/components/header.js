@@ -50,11 +50,6 @@ class Header extends Component {
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to="projects/#project">
-                    Projects
-                  </Link>
-                </NavItem>
-                <NavItem>
                   <Link
                     className="nav-link"
                     activeStyle={{ fontWeight: "bold" }}
