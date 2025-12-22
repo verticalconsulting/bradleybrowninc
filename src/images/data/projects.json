@@ -3,31 +3,28 @@
     "title": "Custom Home Build",
     "slug": "custom-home-build",
     "category": ["remodeling"],
-    "description": "Bradley Brown can build or remodel your entire home that is one of a kind and custom to your liking our his design.",
+    "description": "Bradley Brown can build or remodel your entire home that is one of a kind and custom to your liking or his design.",
     "img": {
       "src": [
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-        "https://images.unsplash.com/photo-1512916194211-3f2b7f5f7de3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-        "https://images.unsplash.com/photo-1512914890251-2f96a9b0bbe2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80",
-        "https://images.unsplash.com/photo-1512918428767-68579e250c06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-        "https://images.unsplash.com/photo-1512916958891-fcf61b2160df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80",
-        "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cd1a5be2-4bb7-4799-e6d5-3ed1a9e23600/public",
+        "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/44dd1fae-eba4-4a13-cb95-6f6ae971a900/public",
+        "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/ce8e24fc-1056-4d62-8874-8372b2c11f00/public"
       ],
-      "orig": "https://unsplash.com/photos/2d4lAQAlbDA",
-      "author": "Photo by iAlicante Mediterranean Homes on Unsplash"
+      "orig": "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/cd1a5be2-4bb7-4799-e6d5-3ed1a9e23600/public",
+      "author": "Photo by Bradley Brown Inc Custom White Gold Glass Shower"
     },
-    "amount": "Php 4,000,000.00",
-    "duration": "85 Calendar days",
-    "completionDate": "Feb. 20, 2018",
-    "owner": "ialicante.com",
-    "address": "Alicante, Costa Blanca, Spain",
+    "amount": "USD $979,000",
+    "duration": "120 Calendar days",
+    "completionDate": "Feb. 20, 2024",
+    "owner": "Bradleybrowninc.com",
+    "address": "Mississippi",
     "featured": true
   },
   {
-    "title": "Jarek Ceborski",
-    "slug": "jarek-ceborski",
-    "category": ["interior design"],
-    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo amet dicta eaque facere doloribus, earum error! Laudantium beatae harum quos?",
+    "title": "Gourmet Kitchen Renovation",
+    "slug": "gourmet-kitchen-renovation",
+    "category": ["remodeling", "interior design"],
+    "description": "Complete kitchen transformation featuring custom cabinetry, granite countertops, stainless steel appliances, and a large center island. This modern gourmet kitchen combines functionality with elegant design.",
     "img": {
       "src": [
         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
@@ -35,17 +32,17 @@
       "orig": "https://unsplash.com/photos/jn7uVeCdf6U",
       "author": "Photo by Jarek Ceborski on Unsplash"
     },
-    "amount": "Php 4,000,000.00",
-    "duration": "85 Calendar days",
-    "completionDate": "Feb. 20, 2018",
-    "owner": "Jarek Ceborski",
-    "address": "Wrocław, Poland"
+    "amount": "$85,000.00",
+    "duration": "45 Calendar days",
+    "completionDate": "Nov. 15, 2023",
+    "owner": "The Anderson Family",
+    "address": "Jackson, Mississippi"
   },
   {
-    "title": "Pixasquare",
-    "slug": "pixasquare",
-    "category": ["construction"],
-    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo amet dicta eaque facere doloribus, earum error! Laudantium beatae harum quos?",
+    "title": "Luxury Master Bathroom Suite",
+    "slug": "luxury-master-bathroom-suite",
+    "category": ["remodeling", "interior design"],
+    "description": "Spa-inspired master bathroom featuring a walk-in shower with rainfall fixtures, soaking tub, double vanity with custom lighting, heated floors, and premium tile work throughout.",
     "img": {
       "src": [
         "https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
@@ -53,17 +50,17 @@
       "orig": "https://unsplash.com/photos/4ojhpgKpS68",
       "author": "Photo by Pixasquare on Unsplash"
     },
-    "amount": "Php 4,000,000.00",
-    "duration": "85 Calendar days",
-    "completionDate": "Feb. 20, 2018",
-    "owner": "pixasquare.com",
-    "address": "Manila, Philippines"
+    "amount": "$62,000.00",
+    "duration": "35 Calendar days",
+    "completionDate": "Sept. 8, 2023",
+    "owner": "The Mitchell Residence",
+    "address": "Madison, Mississippi"
   },
   {
-    "title": "Étienne Beauregard-Riverin",
-    "slug": "sphericity",
+    "title": "Outdoor Living & Entertainment Deck",
+    "slug": "outdoor-living-entertainment-deck",
     "category": ["construction"],
-    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo amet dicta eaque facere doloribus, earum error! Laudantium beatae harum quos?",
+    "description": "Custom-built multi-level deck with built-in seating, pergola structure, outdoor kitchen space, and professional lighting. Perfect for entertaining and enjoying Mississippi's beautiful weather.",
     "img": {
       "src": [
         "https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80"
@@ -71,53 +68,50 @@
       "orig": "https://unsplash.com/photos/B0aCvAVSX8E",
       "author": "unsplash.com/@sphericity"
     },
-    "amount": "Php 4,000,000.00",
-    "duration": "85 Calendar days",
-    "completionDate": "Feb. 20, 2018",
-    "owner": "Sphericity",
-    "address": "Manila, Philippines"
+    "amount": "$48,000.00",
+    "duration": "28 Calendar days",
+    "completionDate": "May 22, 2023",
+    "owner": "The Roberts Family",
+    "address": "Ridgeland, Mississippi"
   },
   {
-    "title": "Jason Briscoe",
-    "slug": "jason-briscoe",
+    "title": "Historic Home Restoration",
+    "slug": "historic-home-restoration",
     "category": ["remodeling", "interior design"],
-    "description": "Giving brands the energy to change. I use design to help clients find the vision and courage to take on the world.",
+    "description": "Careful restoration of a 1920s craftsman home preserving original architectural details while modernizing electrical, plumbing, and HVAC systems. Features restored hardwood floors, period-appropriate fixtures, and updated kitchen and bathrooms.",
     "img": {
       "src": [
-        "https://images.unsplash.com/photo-1502005097973-6a7082348e28?ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80",
+        "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b25a33df-1dfa-45ac-d17e-4c908947c800/public",
         "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80",
         "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
       ],
-      "orig": "https://unsplash.com/photos/AQl-J19ocWE",
-      "author": "Photo by Jason Briscoe on Unsplash"
+      "orig": "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/b25a33df-1dfa-45ac-d17e-4c908947c800/public",
+      "author": "Photo by Corey Hughes Five Hughes LLC"
     },
-    "amount": "Php 4,000,000.00",
-    "duration": "85 Calendar days",
-    "completionDate": "Feb. 20, 2018",
-    "owner": "Jason Briscoe",
-    "address": "Toronto",
+    "amount": "$185,000.00",
+    "duration": "120 Calendar days",
+    "completionDate": "Mar. 10, 2023",
+    "owner": "The Harrison Estate",
+    "address": "Oxford, Mississippi",
     "featured": true
   },
   {
-    "title": "The Rock and Roll Hall of Fame and Museum",
-    "slug": "lance-anderson",
+    "title": "Two-Story Home Addition",
+    "slug": "two-story-home-addition",
     "category": ["construction", "interior design"],
-    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo amet dicta eaque facere doloribus, earum error! Laudantium beatae harum quos?",
+    "description": "Expanded living space with a two-story addition including a new master bedroom suite upstairs and family room below. Seamlessly integrated with existing home architecture, featuring vaulted ceilings, large windows, and custom trim work.",
     "img": {
       "src": [
-        "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-        "https://images.unsplash.com/photo-1487603527224-a650979f288e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-        "https://images.unsplash.com/photo-1487603097198-fe76cd44579d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-        "https://images.unsplash.com/photo-1487603348225-f4bb6ceba144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/0d5554e1-ad55-4702-4244-4c7332316000/public"
       ],
-      "orig": "https://unsplash.com/photos/QdAAasrZhdk",
-      "author": "Photo by Lance Anderson on Unsplash"
+      "orig": "https://imagedelivery.net/dXRounTcgmfhZwbsZCZLTw/0d5554e1-ad55-4702-4244-4c7332316000/public",
+      "author": "Photo by Five Hughes LLC"
     },
-    "amount": "Php 4,000,000.00",
-    "duration": "85 Calendar days",
-    "completionDate": "Feb. 20, 2018",
-    "owner": "Lance Anderson",
-    "address": "Cleveland, United States",
+    "amount": "$225,000.00",
+    "duration": "95 Calendar days",
+    "completionDate": "Jan. 18, 2023",
+    "owner": "The Thompson Family",
+    "address": "Flowood, Mississippi",
     "featured": true
   }
 ]
