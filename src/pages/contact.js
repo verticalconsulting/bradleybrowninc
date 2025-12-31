@@ -43,6 +43,21 @@ const ContactPage = () => {
   const { title, email, social, contact, address, serviceAreas, map } = data.site.siteMetadata
   return (
     <section id="contact">
+      {/* Hidden form for Netlify to detect at build time */}
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="text" name="name" />
+        <input type="number" name="phone" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+        <input type="file" name="file" />
+      </form>
+
       <PageHeader title="Contact" />
       <Container>
         <main className="contact-page section-lg">
@@ -63,6 +78,7 @@ const ContactPage = () => {
                 data-netlify="true"
               >
                 <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
                 <Row>
                   <Col className="mb-4" md="6">
                     <input
