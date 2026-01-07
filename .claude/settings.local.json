@@ -17,7 +17,11 @@
       "Bash(npm run clean:*)",
       "Bash(rm:*)",
       "WebFetch(domain:bradleybrowninc.com)",
-      "Read(//c/Users/ogDevOps/Downloads/**)"
+      "Read(//c/Users/ogDevOps/Downloads/**)",
+      "Bash(npm start)",
+      "Bash(cat:*)",
+      "Bash(gatsby clean:*)",
+      "Bash(npx kill-port:*)"
     ]
   }
 }

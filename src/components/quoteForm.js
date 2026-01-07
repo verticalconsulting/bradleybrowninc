@@ -5,28 +5,6 @@ import "./quoteForm.scss"
 const QuoteForm = () => {
   return (
     <div className="quote-form" id="quote">
-      {/* Hidden form for Netlify to detect at build time */}
-      <form
-        name="quote"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        hidden
-      >
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="tel" name="phone" />
-        <select name="service">
-          <option value="Custom Home Build">Custom Home Build</option>
-          <option value="Kitchen Remodel">Kitchen Remodel</option>
-          <option value="Bath Remodel">Bath Remodel</option>
-          <option value="Multiple Services">Multiple Services</option>
-          <option value="Other">Other</option>
-        </select>
-        <input type="text" name="address" />
-        <textarea name="message"></textarea>
-      </form>
-
       <section className="quote-form-section">
         <Container>
           <div className="quote-form-content">
@@ -35,13 +13,10 @@ const QuoteForm = () => {
               Ready to start your project? Fill out the form below and our team will get back to you within 24 hours.
             </p>
             <form
-              name="quote"
+              action="https://formspree.io/f/mykgnqee"
               method="POST"
-              data-netlify-honeypot="bot-field"
-              data-netlify="true"
             >
-              <input type="hidden" name="form-name" value="quote" />
-              <input type="hidden" name="bot-field" />
+              <input type="hidden" name="_next" value="https://bradleybrowninc.com/thank-you" />
               <Row>
                 <Col md="6" className="mb-4">
                   <input
