@@ -280,6 +280,8 @@ Edit navigation links in `src/components/header.js`:
 | Edit services | `src/pages/services.js` |
 | Edit contact info | `gatsby-config.js` → `siteMetadata` |
 | Edit navigation | `src/components/header.js` |
+| Edit navigation | `src/pages/privacy-policy.js` |
+| Edit navigation | `src/pages/thank-you.js` |
 | Change logo | `src/images/brand-logo.png` |
 | Form configuration | `src/pages/contact.js` |
 
