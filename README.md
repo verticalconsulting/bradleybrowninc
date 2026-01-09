@@ -1,97 +1,367 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# Bradley Brown Inc - Custom Home Builder Website
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+![Bradley Brown Inc](https://bradleybrowninc.com/icons/icon-144x144.png)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+Professional website for Bradley Brown Inc, a licensed and insured custom home builder serving Rankin, Madison, Hinds, and Scott Counties in Mississippi.
 
-## 🚀 Quick start
+**Live Site:** [https://bradleybrowninc.com](https://bradleybrowninc.com)
 
-1.  **Create a Gatsby site.**
+## 🏗️ About
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+Bradley Brown Inc specializes in custom home building, remodeling, and construction services in the Mississippi area. This website showcases our portfolio, services, and provides an easy way for potential clients to get in touch.
 
-    ```sh
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+## 🚀 Technology Stack
 
-1.  **Start developing.**
+- **Framework:** Gatsby 5 (Static Site Generator)
+- **UI Library:** React 18
+- **Styling:** SASS/SCSS with Bootstrap 4 and Reactstrap
+- **Deployment:** Cloudflare Pages
+- **Analytics:**
+  - Google Tag Manager (GTM-M3W35JTV)
+  - Google Ads Conversion Tracking (AW-17864041271)
+- **Forms:** Configurable (Netlify Forms, Formspree, or custom)
 
-    Navigate into your new site’s directory and start it up.
+### Key Gatsby Plugins
 
-    ```sh
-    cd my-default-starter/
-    gatsby develop
-    ```
+- `gatsby-plugin-layout` - Persistent layout wrapper
+- `gatsby-plugin-image` / `gatsby-plugin-sharp` - Optimized image processing
+- `gatsby-transformer-json` - JSON data sourcing for projects
+- `gatsby-plugin-react-svg` - SVG component imports
+- `gatsby-plugin-sass` - SASS/SCSS support
 
-1.  **Open the source code and start editing!**
+## 📁 Project Structure
 
-    Your site is now running at `http://localhost:8000`!
+```
+bradleybrowninc/
+├── src/
+│   ├── pages/              # Route-based pages
+│   │   ├── index.js        # Homepage
+│   │   ├── about.js        # About Us
+│   │   ├── services.js     # Services
+│   │   ├── projects.js     # Projects gallery
+│   │   ├── contact.js      # Contact page
+│   │   ├── privacy-policy.js
+│   │   └── thank-you.js
+│   ├── components/         # Reusable React components
+│   │   ├── layout.js       # Global layout wrapper
+│   │   ├── header.js       # Navigation header
+│   │   ├── footer.js       # Site footer
+│   │   ├── hero.js         # Hero sections
+│   │   ├── project.js      # Project gallery
+│   │   └── projCard.js     # Project cards
+│   ├── templates/          # Dynamic page templates
+│   │   └── singleProject.js
+│   ├── images/             # Image assets
+│   │   └── data/
+│   │       └── projects.json  # Project portfolio data
+│   ├── themes/             # SCSS theme files
+│   │   ├── green.scss
+│   │   └── orange.scss
+│   └── assets/             # SVG icons
+├── gatsby-config.js        # Gatsby configuration & site metadata
+├── gatsby-node.js          # Dynamic page generation
+├── gatsby-ssr.js           # Server-side rendering (GTM, gtag)
+├── src/html.js             # Custom HTML wrapper
+├── .github/                # GitHub Actions & templates
+│   ├── workflows/
+│   │   └── pr-validation.yml
+│   ├── PULL_REQUEST_TEMPLATE/
+│   └── ISSUE_TEMPLATE/
+├── .husky/                 # Git hooks
+└── CONTRIBUTING.md         # Contributor guidelines
+```
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## 🛠️ Development
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+### Prerequisites
 
-## 🧐 What's inside?
+- Node.js 18+ and npm
+- Git
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+### Installation
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+```bash
+# Clone the repository
+git clone https://github.com/verticalconsulting/bradleybrowninc.git
+cd bradleybrowninc
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+# Install dependencies
+npm install
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+# Set up git hooks (automatic)
+npm run prepare
+```
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+### Development Commands
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+```bash
+# Start development server (http://localhost:8000)
+npm run develop
+# or
+npm start
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+# Build for production
+npm run build
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+# Serve production build locally
+npm run serve
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+# Format code with Prettier
+npm run format
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+# Validate build and formatting
+npm run validate
+```
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+### GraphQL Playground
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+When running the dev server, access the GraphQL playground at:
+- **http://localhost:8000/___graphql**
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+## 📝 Content Management
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+### Site Metadata
 
-## 🎓 Learning Gatsby
+Edit global site information in `gatsby-config.js`:
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+```javascript
+module.exports = {
+  siteMetadata: {
+    title: `Bradley Brown Inc`,
+    fullTitle: `Bradley Brown Inc - Licensed & Insured Custom Home Builder`,
+    description: `No job is too big, or too small...`,
+    email: `bradleybrowninc@gmail.com`,
+    contact: {
+      mobile: `601-954-1306`,
+      telephone: `601-954-1306`,
+    },
+    address: `104 Tiffany Drive, Brandon, MS 39042`,
+    social: {
+      facebook: `https://www.facebook.com/BradleyBrownInc`,
+      // ... other social links
+    }
+  }
+}
+```
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+### Managing Projects
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+Projects are stored in `src/images/data/projects.json`. Each project is dynamically generated into a page at `/projects/{slug}`.
 
-## 💫 Deploy
+**Add a new project:**
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+```json
+{
+  "title": "Custom Home Build",
+  "slug": "custom-home-build",
+  "category": ["remodeling", "construction"],
+  "description": "Project description here...",
+  "img": {
+    "src": [
+      "https://imagedelivery.net/...",
+      "https://imagedelivery.net/..."
+    ],
+    "orig": "https://source-url.com",
+    "author": "Photo credit"
+  },
+  "amount": "USD $979,000",
+  "duration": "120 Calendar days",
+  "completionDate": "Feb. 20, 2024",
+  "owner": "Client Name",
+  "address": "Mississippi",
+  "featured": true
+}
+```
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+**Key fields:**
+- `slug` - URL-friendly identifier (must be unique)
+- `category` - Array: `["construction", "remodeling", "interior design"]`
+- `featured` - Set to `true` to display on homepage
+- `img.src` - Array of image URLs (first image is the thumbnail)
+
+After editing, rebuild the site for changes to take effect.
+
+### Page Content
+
+Edit page content directly in `src/pages/*.js` files. Most pages use GraphQL to query site metadata from `gatsby-config.js`.
+
+## 🎨 Styling & Themes
+
+Multiple color themes available in `src/themes/`:
+- `green.scss`
+- `orange.scss`
+
+Import theme in page files:
+```javascript
+import "../themes/green.scss"
+```
+
+Custom component styles are in `src/components/*.scss`.
+
+## 📧 Contact Forms
+
+The contact form can be configured for different platforms:
+
+### Netlify Forms (Default)
+```javascript
+<form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+>
+```
+
+### Formspree (Alternative)
+```javascript
+<form
+  action="https://formspree.io/f/YOUR_FORM_ID"
+  method="POST"
+>
+```
+
+See `SITE-MANAGEMENT.md` for detailed form configuration.
+
+## 🚢 Deployment
+
+### Cloudflare Pages (Current)
+
+**Build Settings:**
+- Build command: `npm run build`
+- Build output directory: `public`
+- Node version: 18
+
+**Automatic Deployment:**
+Every push to `master` branch triggers automatic deployment to Cloudflare Pages.
+
+**Manual Deployment:**
+```bash
+npm run build
+npx wrangler pages deploy public --project-name=bradleybrowninc
+```
+
+### Environment Variables
+
+Set in Cloudflare Pages dashboard if needed:
+- `NODE_VERSION=18`
+
+## 🔍 SEO & Analytics
+
+### Google Tag Manager
+- **Container ID:** GTM-M3W35JTV
+- Configured in `src/html.js` and `gatsby-ssr.js`
+
+### Google Ads Conversion Tracking
+- **Conversion ID:** AW-17864041271
+- Tracks conversions and page views
+
+### Meta Tags
+Pages use React Helmet for custom meta tags. Global defaults are in `gatsby-config.js`.
+
+## 🔄 CI/CD & Quality Assurance
+
+### GitHub Actions
+
+Automated checks on every PR:
+- ✅ Gatsby build validation
+- ✅ Missing image reference detection
+- ✅ Code formatting (Prettier)
+- ✅ Linting
+
+### Git Hooks (Husky)
+
+**Pre-commit:**
+- Validates image references in CSS/SCSS
+- Runs Prettier on staged files
+
+**Pre-push:**
+- Runs full production build
+
+### PR Process
+
+See `CONTRIBUTING.md` for the complete contribution workflow.
+
+## 📊 Performance
+
+- **Static Site Generation** - All pages pre-rendered at build time
+- **Image Optimization** - Gatsby Image with sharp for responsive images
+- **Code Splitting** - Automatic JavaScript bundle optimization
+- **PWA Ready** - Manifest and offline support configured
+
+## 🐛 Troubleshooting
+
+### Build Failures
+
+**Missing image references:**
+```bash
+# Check which images are referenced but missing
+npm run build
+```
+
+Common causes:
+- Image path typos in SCSS files
+- File extensions don't match (`.webp` vs `.jpg`)
+- Case sensitivity (Windows vs Linux)
+
+**Solution:** Update the path in the SCSS file or add the missing image.
+
+### 404 Errors
+
+- Project links: Ensure paths start with `/` in `src/components/projCard.js`
+- Privacy policy: Check footer links in `src/components/footer.js`
+
+### Development Server Issues
+
+```bash
+# Clean cache and restart
+gatsby clean
+npm run develop
+```
+
+## 📚 Documentation
+
+- **[SITE-MANAGEMENT.md](./SITE-MANAGEMENT.md)** - Complete site management guide
+- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Contribution guidelines and PR workflow
+- **[CLOUDFLARE-WORKER-SETUP.md](./CLOUDFLARE-WORKER-SETUP.md)** - Cloudflare Worker configuration
+- **[CLAUDE.md](./CLAUDE.md)** - AI assistant development context
+
+## 🤝 Contributing
+
+We welcome contributions! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for:
+- Development workflow
+- PR process
+- Code style guidelines
+- Testing requirements
+
+## 📄 License
+
+MIT License - see LICENSE file for details
+
+## 👥 Credits
+
+**Design & Development:**
+- Five Hughes LLC / Vertical Consulting
+- Website: [verticalconsulting.net](https://verticalconsulting.net)
+
+**Built With:**
+- [Gatsby](https://www.gatsbyjs.com/)
+- [React](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Cloudflare Pages](https://pages.cloudflare.com/)
+
+## 📞 Support
+
+**Technical Issues:**
+- Open an issue using the appropriate template
+- Check documentation files first
+
+**Business Inquiries:**
+- Email: bradleybrowninc@gmail.com
+- Phone: 601-954-1306
+
+---
+
+**Bradley Brown Inc** - Licensed & Insured Custom Home Builder
+Serving Rankin, Madison, Hinds, and Scott Counties, Mississippi
+
+© 2019-2025 Bradley Brown Inc. All rights reserved.
