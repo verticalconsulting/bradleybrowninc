@@ -1,7 +1,7 @@
 import React from "react"
 import { Container, Row, Col } from "reactstrap"
 import { useStaticQuery, graphql } from "gatsby"
-import companyThumbnail from "../images/company.jpg"
+import companyThumbnail from "../images/about.jpg"
 import PageHeader from "../components/pageHeader"
 import AboutCard from "../components/aboutCard"
 
@@ -39,7 +39,7 @@ const AboutPage = () => {
               align="left"
             />
             <p className="content-title font-weight-bold">{fullTitle}</p>
-            {aboutContent.map(para => (
+            {aboutContent.map((para) => (
               <p>{para}</p>
             ))}
           </section>
@@ -48,19 +48,31 @@ const AboutPage = () => {
             <Col md="6">
               <AboutCard title="Mission">
                 <p>
-                  <strong>{fullTitle}</strong>'s mission is to deliver exceptional craftsmanship and personalized service to homeowners throughout Central Mississippi. We are committed to:
+                  <strong>{fullTitle}</strong>'s mission is to deliver
+                  exceptional craftsmanship and personalized service to
+                  homeowners throughout Central Mississippi. We are committed
+                  to:
                 </p>
                 <ol>
-                  <li>Treating every project with the care and attention we would give our own home.</li>
                   <li>
-                    Building lasting relationships with clients through honest communication and reliable service.
+                    Treating every project with the care and attention we would
+                    give our own home.
                   </li>
                   <li>
-                    Using quality materials and proven construction techniques that stand the test of time.
+                    Building lasting relationships with clients through honest
+                    communication and reliable service.
                   </li>
-                  <li>Maintaining the highest standards of professionalism and craftsmanship in every job.</li>
                   <li>
-                    Serving our communities with integrity, from small repairs to complete home transformations.
+                    Using quality materials and proven construction techniques
+                    that stand the test of time.
+                  </li>
+                  <li>
+                    Maintaining the highest standards of professionalism and
+                    craftsmanship in every job.
+                  </li>
+                  <li>
+                    Serving our communities with integrity, from small repairs
+                    to complete home transformations.
                   </li>
                 </ol>
               </AboutCard>
@@ -68,12 +80,21 @@ const AboutPage = () => {
             <Col md="6">
               <AboutCard title="Vision">
                 <p>
-                  Our vision is to be Central Mississippi's most trusted name in custom home building and remodeling. <strong>{fullTitle}</strong> aspires to be recognized not just for the quality of our work, but for the relationships we build and the care we bring to every project. We envision a future where every homeowner knows they can count on us for honest advice, superior craftsmanship, and work that truly lasts.
+                  Our vision is to be Central Mississippi's most trusted name in
+                  custom home building and remodeling.{" "}
+                  <strong>{fullTitle}</strong> aspires to be recognized not just
+                  for the quality of our work, but for the relationships we
+                  build and the care we bring to every project. We envision a
+                  future where every homeowner knows they can count on us for
+                  honest advice, superior craftsmanship, and work that truly
+                  lasts.
                 </p>
               </AboutCard>
               <AboutCard title="Core Values">
                 <p>
-                  At <strong>{title}</strong>, our core values guide everything we do. These principles are the foundation of how we work and how we serve our clients:
+                  At <strong>{title}</strong>, our core values guide everything
+                  we do. These principles are the foundation of how we work and
+                  how we serve our clients:
                 </p>
                 <ul>
                   <li>Quality Craftsmanship - Built to last</li>

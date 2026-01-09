@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import List2 from "../components/list2"
 
 import Square from "../assets/svg/solid/square.svg"
-import companyThumbnail from "../images/company.jpg"
+import companyThumbnail from "../images/about.jpg"
 
 import "./about.scss"
 
