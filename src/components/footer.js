@@ -1,5 +1,6 @@
 import React from "react"
 import { Container, Row, Col } from "reactstrap"
+import { Link } from "gatsby"
 import "./footer.scss"
 
 import List2 from "../components/list2"
@@ -45,7 +46,7 @@ const Footer = ({ siteMetadata }) => {
       <section className="footer-wrapper">
         <Container className="footer-content text-white">
           <Row className="section-md">
-            <Col className="company-badge" lg="4" sm="12">
+            <Col className="company-badge" lg="3" sm="12">
               <h4 className="text-center font-weight-bold mt-4 mb-2">
                 Licensed/Accredited
               </h4>
@@ -60,7 +61,44 @@ const Footer = ({ siteMetadata }) => {
                 ))}
               </section>
             </Col>
-            <Col className="footer-aboutus" lg="4" sm="6">
+            <Col className="footer-links" lg="2" sm="6">
+              <h4 className="text-center font-weight-bold mt-4 mb-2">
+                Quick Links
+              </h4>
+              <ul className="list-unstyled">
+                <li className="my-2">
+                  <Link to="/#hero" className="footer-link">
+                    Home
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <Link to="/services/#services" className="footer-link">
+                    Services
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <Link to="/projects/#projects" className="footer-link">
+                    Projects
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <Link to="/about/#about" className="footer-link">
+                    About Us
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <Link to="/contact/#contact" className="footer-link">
+                    Contact
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <Link to="/privacy/#privacy-policy" className="footer-link">
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </Col>
+            <Col className="footer-aboutus" lg="3" sm="6">
               <h4 className="text-center font-weight-bold mt-4 mb-2">
                 About Us
               </h4>
@@ -116,7 +154,7 @@ const Footer = ({ siteMetadata }) => {
                 <hr />
               </section>
             </Col>
-            <Col className="footer-contact" lg="4" sm="6">
+            <Col className="footer-contact" lg="4" sm="12">
               <h4 className="text-center font-weight-bold mt-4 mb-2">
                 Contacts
               </h4>

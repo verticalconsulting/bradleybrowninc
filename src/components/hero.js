@@ -3,26 +3,41 @@ import { Container } from "reactstrap"
 import { Button } from "reactstrap"
 import { Link } from "gatsby"
 import "./hero.scss"
-import companyVideo from "../images/company.mp4"
+import { heroConfig, labels } from "../config/siteConfig"
 
-const Hero = ({ title, description }) => {
+const Hero = ({
+  title,
+  description,
+  backgroundType = heroConfig.backgroundType,
+  backgroundSrc = heroConfig.backgroundSrc
+}) => {
+  // Use provided props or default to config values
+  const source = backgroundSrc
+
   return (
     <div className="hero" id="hero">
-      <video
-        className="hero-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src={companyVideo} type="video/mp4" />
-      </video>
+      {backgroundType === "video" ? (
+        <video
+          className="hero-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={source} type="video/mp4" />
+        </video>
+      ) : (
+        <div
+          className="hero-image"
+          style={{ backgroundImage: `url(${source})` }}
+        />
+      )}
       <section className="h-100 d-flex align-items-center text-center bg-dark-40">
         <Container>
           <main className="hero-content">
             <section className="hero-buttons">
-              <Button href="#services">Our Services</Button>
-              <Button href="#quote" outline>Request a Quote</Button>
+              <Button href="#services">{labels.heroButton1}</Button>
+              <Button href="#quote" outline>{labels.heroButton2}</Button>
             </section>
             <h1 className="title">{title}</h1>
             <hr className="h-separator" />

@@ -15,6 +15,20 @@ footer {
     border-color: rgba($color: #fff, $alpha: 0.6);
     margin: 5px 0px;
   }
+
+  .footer-links {
+    .footer-link {
+      color: rgba(#fff, 0.8);
+      text-decoration: none;
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+    }
+  }
+
   .footer-social {
     a {
       padding: 7px 10px 9px;
