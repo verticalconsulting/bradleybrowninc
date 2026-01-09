@@ -21,7 +21,9 @@
       "Bash(npm start)",
       "Bash(cat:*)",
       "Bash(gatsby clean:*)",
-      "Bash(npx kill-port:*)"
+      "Bash(npx kill-port:*)",
+      "Bash(git diff:*)",
+      "Bash(npx prettier:*)"
     ]
   }
 }
