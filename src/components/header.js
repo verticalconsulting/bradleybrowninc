@@ -32,7 +32,7 @@ class Header extends Component {
               <img
                 src={logo}
                 alt={`${siteTitle} Logo`}
-                height="40px"
+                height="60px"
                 className="mr-2"
               />
               {siteTitle}
@@ -83,6 +83,15 @@ class Header extends Component {
                     to="/contact/#contact"
                   >
                     Contact
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link
+                    className="nav-link"
+                    activeStyle={{ fontWeight: "bold" }}
+                    to="/privacy-policy/#privacy-policy"
+                  >
+                    Privacy Policy
                   </Link>
                 </NavItem>
                 <NavItem>

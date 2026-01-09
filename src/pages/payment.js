@@ -17,8 +17,8 @@ const PaymentPage = () => {
   const [amount, setAmount] = useState("")
   const [note, setNote] = useState("")
 
-  const venmoUsername = "Bradley-Brown-Inc" // Update this with your actual Venmo username
-  const venmoHandle = "@Bradley-Brown-Inc" // Update this with your actual Venmo handle
+  const venmoUsername = "bradleybrowninc" // Update this with your actual Venmo username
+  const venmoHandle = "@bradleybrowninc" // Update this with your actual Venmo handle
 
   const handleVenmoPayment = () => {
     // Create Venmo deep link
