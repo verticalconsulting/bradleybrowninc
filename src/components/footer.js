@@ -92,7 +92,7 @@ const Footer = ({ siteMetadata }) => {
                   </Link>
                 </li>
                 <li className="my-2">
-                  <Link to="/privacy/#privacy-policy" className="footer-link">
+                  <Link to="/privacy-policy/#privacy-policy" className="footer-link">
                     Privacy Policy
                   </Link>
                 </li>
