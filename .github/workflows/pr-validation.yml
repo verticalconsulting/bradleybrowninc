@@ -1,0 +1,115 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [ master, main ]
+  push:
+    branches: [ master, main ]
+
+jobs:
+  validate-build:
+    name: Validate Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Gatsby build
+        run: npm run build
+        env:
+          NODE_ENV: production
+          CI: true
+
+      - name: Check for missing image references
+        run: |
+          echo "Checking for missing image references in SCSS/CSS files..."
+
+          # Find all url() references in SCSS/CSS files
+          MISSING_FILES=0
+
+          for file in $(find src -name "*.scss" -o -name "*.css"); do
+            # Extract url() paths
+            grep -oP '(?<=url\()["\x27]?\.\.\/[^)]*["\x27]?(?=\))' "$file" 2>/dev/null | while read -r url; do
+              # Clean up the URL (remove quotes and parentheses)
+              clean_url=$(echo "$url" | sed 's/["\x27]//g')
+
+              # Get the directory of the current file
+              file_dir=$(dirname "$file")
+
+              # Resolve the full path
+              full_path="$file_dir/$clean_url"
+
+              # Check if file exists
+              if [ ! -f "$full_path" ]; then
+                echo "❌ Missing file: $full_path (referenced in $file)"
+                MISSING_FILES=$((MISSING_FILES + 1))
+              fi
+            done
+          done
+
+          if [ $MISSING_FILES -gt 0 ]; then
+            echo "Found $MISSING_FILES missing image reference(s)"
+            exit 1
+          else
+            echo "✅ All image references are valid"
+          fi
+
+      - name: Upload build artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gatsby-build
+          path: public/
+          retention-days: 7
+
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint --if-present
+        continue-on-error: true
+
+  format-check:
+    name: Check Code Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format --if-present
+        continue-on-error: true

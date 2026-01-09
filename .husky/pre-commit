@@ -1,0 +1,53 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running pre-commit checks..."
+
+# Check for missing image references in CSS/SCSS
+echo "Checking for missing image references..."
+
+MISSING_FILES=0
+
+for file in $(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(scss|css)$'); do
+  if [ -f "$file" ]; then
+    # Extract url() references
+    while IFS= read -r line; do
+      # Extract the path from url()
+      url=$(echo "$line" | grep -oP '(?<=url\()["\x27]?\.\.\/[^)]*["\x27]?(?=\))')
+
+      if [ -n "$url" ]; then
+        # Clean up the URL
+        clean_url=$(echo "$url" | sed 's/["\x27]//g')
+
+        # Get the directory of the current file
+        file_dir=$(dirname "$file")
+
+        # Resolve the full path
+        full_path="$file_dir/$clean_url"
+
+        # Check if file exists
+        if [ ! -f "$full_path" ]; then
+          echo "❌ Missing file: $full_path (referenced in $file)"
+          MISSING_FILES=$((MISSING_FILES + 1))
+        fi
+      fi
+    done < "$file"
+  fi
+done
+
+if [ $MISSING_FILES -gt 0 ]; then
+  echo "❌ Found $MISSING_FILES missing image reference(s)"
+  echo "Please fix the missing image references before committing."
+  exit 1
+fi
+
+echo "✅ All image references are valid"
+
+# Run prettier if available
+if command -v npx &> /dev/null; then
+  echo "Running Prettier..."
+  npx prettier --write $(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx|json|css|scss|md)$')
+  git add $(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx|json|css|scss|md)$')
+fi
+
+echo "✅ Pre-commit checks passed"
