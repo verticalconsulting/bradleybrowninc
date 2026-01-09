@@ -1,0 +1,186 @@
+// Payment Page Styles
+
+#payment {
+  .payment-page {
+    .payment-card {
+      border: none;
+
+      .payment-tabs {
+        border-bottom: 2px solid #e9ecef;
+        background-color: #f8f9fa;
+        display: flex;
+        flex-wrap: wrap;
+
+        .nav-item {
+          flex: 1;
+          min-width: 150px;
+
+          .nav-link {
+            border: none;
+            border-radius: 0;
+            padding: 1.25rem 1rem;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            background-color: transparent;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.05);
+              color: #495057;
+            }
+
+            &.active {
+              background-color: #fff;
+              color: #212529;
+              border-bottom: 3px solid #007bff;
+              font-weight: 600;
+            }
+
+            .tab-content-wrapper {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 0.5rem;
+
+              .tab-icon {
+                font-size: 1.5rem;
+                display: block;
+              }
+
+              .tab-label {
+                font-size: 0.9rem;
+                display: block;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+      }
+
+      .tab-content {
+        min-height: 400px;
+      }
+    }
+
+    .payment-method-content {
+      .payment-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .features-list {
+        .feature-item {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid #e9ecef;
+          font-size: 0.95rem;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+
+      .zelle-info-box,
+      .klarna-messaging-wrapper,
+      .instructions-box {
+        code {
+          background-color: #f8f9fa;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          font-size: 0.9rem;
+          color: #e83e8c;
+        }
+      }
+
+      .venmo-form {
+        .input-group-text {
+          background-color: #e9ecef;
+          border-color: #ced4da;
+        }
+
+        .form-control {
+          border-color: #ced4da;
+
+          &:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+          }
+        }
+      }
+    }
+
+    .payment-help-section {
+      .contact-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  #payment {
+    .payment-page {
+      .payment-tabs {
+        .nav-item {
+          min-width: 120px;
+
+          .nav-link {
+            padding: 1rem 0.5rem;
+
+            .tab-content-wrapper {
+              .tab-icon {
+                font-size: 1.25rem;
+              }
+
+              .tab-label {
+                font-size: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #payment {
+    .payment-page {
+      .payment-tabs {
+        .nav-item {
+          flex: 1 1 50%;
+
+          .nav-link {
+            padding: 1rem 0.5rem;
+
+            .tab-content-wrapper {
+              gap: 0.25rem;
+
+              .tab-icon {
+                font-size: 1.5rem;
+              }
+
+              .tab-label {
+                font-size: 0.7rem;
+              }
+            }
+          }
+        }
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
