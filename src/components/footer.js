@@ -24,16 +24,8 @@ import MSContractor from "../images/badge/ms-contractor.png"
 import Licensed from "../images/badge/licensed-insured.png"
 
 const Footer = ({ siteMetadata }) => {
-  const {
-    title,
-    about,
-    email,
-    social,
-    contact,
-    address,
-    opening,
-    author,
-  } = siteMetadata
+  const { title, about, email, social, contact, address, opening, author } =
+    siteMetadata
   const badges = [
     { img: MSHBA, alt: "Mississippi Home Builders Association" },
     { img: NAHB, alt: "National Association of Home Builders" },
@@ -51,7 +43,7 @@ const Footer = ({ siteMetadata }) => {
                 Licensed/Accredited
               </h4>
               <section className="img-badge d-flex flex-wrap justify-content-around align-items-center">
-                {badges.map(badge => (
+                {badges.map((badge) => (
                   <img
                     width="90px"
                     className="my-2"
@@ -92,7 +84,15 @@ const Footer = ({ siteMetadata }) => {
                   </Link>
                 </li>
                 <li className="my-2">
-                  <Link to="/privacy-policy/#privacy-policy" className="footer-link">
+                  <Link to="/payment/#payment" className="footer-link">
+                    Make Payment
+                  </Link>
+                </li>
+                <li className="my-2">
+                  <Link
+                    to="/privacy-policy/#privacy-policy"
+                    className="footer-link"
+                  >
                     Privacy Policy
                   </Link>
                 </li>

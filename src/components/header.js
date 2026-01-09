@@ -83,15 +83,15 @@ class Header extends Component {
                     to="/contact/#contact"
                   >
                     Contact
-                    </Link>
+                  </Link>
                 </NavItem>
                 <NavItem>
                   <Link
-                    className="nav-link"
+                    className="nav-link btn btn-success text-white px-3 ml-md-2"
                     activeStyle={{ fontWeight: "bold" }}
-                    to="/privacy/#privacy-policy"
+                    to="/payment/#payment"
                   >
-                    Privacy Policy
+                    Make Payment
                   </Link>
                 </NavItem>
               </Nav>
