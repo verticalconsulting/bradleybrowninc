@@ -19,6 +19,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-M3W35JTV');`,
       },
     }),
+    // Google Ads conversion tracking (gtag.js)
+    React.createElement("script", {
+      key: "gtag-script",
+      async: true,
+      src: "https://www.googletagmanager.com/gtag/js?id=AW-17864041271",
+    }),
+    React.createElement("script", {
+      key: "gtag-config",
+      dangerouslySetInnerHTML: {
+        __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17864041271');`,
+      },
+    }),
   ])
 
   // Google Tag Manager noscript for <body>
