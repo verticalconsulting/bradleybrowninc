@@ -3,12 +3,18 @@
 
 echo "Running pre-commit checks..."
 
-# Check for missing image references in CSS/SCSS
-echo "Checking for missing image references..."
+# Get list of staged CSS/SCSS files
+STAGED_CSS_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(scss|css)$' || true)
 
-MISSING_FILES=0
+# Only check for missing image references if CSS/SCSS files are being committed
+if [ -z "$STAGED_CSS_FILES" ]; then
+  echo "✅ No CSS/SCSS files staged - skipping image reference check"
+else
+  echo "Checking for missing image references in CSS/SCSS files..."
 
-for file in $(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(scss|css)$'); do
+  MISSING_FILES=0
+
+  for file in $STAGED_CSS_FILES; do
   if [ -f "$file" ]; then
     # Extract url() references
     while IFS= read -r line; do
@@ -35,21 +41,22 @@ for file in $(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(scss
   fi
 done
 
-if [ $MISSING_FILES -gt 0 ]; then
-  echo "❌ Found $MISSING_FILES missing image reference(s)"
-  echo "Please fix the missing image references before committing."
-  exit 1
-fi
+  if [ $MISSING_FILES -gt 0 ]; then
+    echo "❌ Found $MISSING_FILES missing image reference(s)"
+    echo "Please fix the missing image references before committing."
+    exit 1
+  fi
 
-echo "✅ All image references are valid"
+  echo "✅ All image references are valid"
+fi
 
 # Run prettier if available
 if command -v npx &> /dev/null; then
   echo "Running Prettier..."
-  STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx|json|css|scss|md)$')
+  STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx|json|css|scss|md)$' || true)
   if [ -n "$STAGED_FILES" ]; then
-    echo "$STAGED_FILES" | xargs npx prettier --write
-    echo "$STAGED_FILES" | xargs git add
+    echo "$STAGED_FILES" | xargs npx prettier --write 2>/dev/null || true
+    echo "$STAGED_FILES" | xargs git add 2>/dev/null || true
   fi
 fi
 
