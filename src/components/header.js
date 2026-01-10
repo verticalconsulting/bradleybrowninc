@@ -8,11 +8,13 @@ import {
   Nav,
   NavItem,
 } from "reactstrap"
+import "./header.scss"
 
 class Header extends Component {
   constructor(props) {
     super(props)
     this.toggle = this.toggle.bind(this)
+    this.closeMenu = this.closeMenu.bind(this)
     this.state = {
       isOpen: false,
     }
@@ -20,6 +22,11 @@ class Header extends Component {
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen,
+    })
+  }
+  closeMenu() {
+    this.setState({
+      isOpen: false,
     })
   }
   render() {
@@ -45,6 +52,7 @@ class Header extends Component {
                     className="nav-link"
                     activeStyle={{ fontWeight: "bold" }}
                     to="/#hero"
+                    onClick={this.closeMenu}
                   >
                     Home
                   </Link>
@@ -54,6 +62,7 @@ class Header extends Component {
                     className="nav-link"
                     activeStyle={{ fontWeight: "bold" }}
                     to="/services/#services"
+                    onClick={this.closeMenu}
                   >
                     Services
                   </Link>
@@ -63,6 +72,7 @@ class Header extends Component {
                     className="nav-link"
                     activeStyle={{ fontWeight: "bold" }}
                     to="/projects/#projects"
+                    onClick={this.closeMenu}
                   >
                     Projects
                   </Link>
@@ -72,6 +82,7 @@ class Header extends Component {
                     className="nav-link"
                     activeStyle={{ fontWeight: "bold" }}
                     to="/about/#about"
+                    onClick={this.closeMenu}
                   >
                     About Us
                   </Link>
@@ -81,17 +92,9 @@ class Header extends Component {
                     className="nav-link"
                     activeStyle={{ fontWeight: "bold" }}
                     to="/contact/#contact"
+                    onClick={this.closeMenu}
                   >
                     Contact
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link
-                    className="nav-link"
-                    activeStyle={{ fontWeight: "bold" }}
-                    to="/privacy-policy/#privacy-policy"
-                  >
-                    Privacy Policy
                   </Link>
                 </NavItem>
                 <NavItem>
@@ -99,6 +102,7 @@ class Header extends Component {
                     className="nav-link btn btn-success text-white px-3 ml-md-2"
                     activeStyle={{ fontWeight: "bold" }}
                     to="/payment/#payment"
+                    onClick={this.closeMenu}
                   >
                     Make Payment
                   </Link>

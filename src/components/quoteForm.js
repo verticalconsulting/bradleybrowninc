@@ -48,15 +48,30 @@ const QuoteForm = () => {
                 <Col md="6" className="mb-4">
                   <select
                     className="form-control"
-                    name="service"
+                    name="project_type"
                     required
                   >
-                    <option value="">Select Service*</option>
+                    <option value="">What type of project are you considering?*</option>
+                    <option value="Kitchen">Kitchen</option>
+                    <option value="Bath">Bath</option>
+                    <option value="Living Room">Living Room</option>
+                    <option value="Office">Office</option>
                     <option value="Custom Home Build">Custom Home Build</option>
-                    <option value="Kitchen Remodel">Kitchen Remodel</option>
-                    <option value="Bath Remodel">Bath Remodel</option>
-                    <option value="Multiple Services">Multiple Services</option>
+                    <option value="Home remodel">Home remodel</option>
                     <option value="Other">Other</option>
+                  </select>
+                </Col>
+                <Col md="6" className="mb-4">
+                  <select
+                    className="form-control"
+                    name="start_timeline"
+                    required
+                  >
+                    <option value="">When do you plan to start?*</option>
+                    <option value="0-3 months">0-3 months</option>
+                    <option value="3-6 months">3-6 months</option>
+                    <option value="6-12 months">6-12 months</option>
+                    <option value="Unknown">Unknown</option>
                   </select>
                 </Col>
                 <Col md="12" className="mb-4">
