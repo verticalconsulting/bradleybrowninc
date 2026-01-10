@@ -99,6 +99,16 @@ class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <Link
+                    className="nav-link btn btn-info text-white px-3 ml-md-2"
+                    activeStyle={{ fontWeight: "bold" }}
+                    to="/ai-quote/#ai-quote"
+                    onClick={this.closeMenu}
+                  >
+                    AI Quote
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link
                     className="nav-link btn btn-success text-white px-3 ml-md-2"
                     activeStyle={{ fontWeight: "bold" }}
                     to="/payment/#payment"
