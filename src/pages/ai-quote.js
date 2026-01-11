@@ -34,7 +34,13 @@ const AIQuotePage = () => {
 
     // Images
     currentImages: [],
-    inspirationImages: []
+    inspirationImages: [],
+  })
+
+  const [visualization, setVisualization] = useState({
+    loading: false,
+    imageUrl: null,
+    error: null,
   })
 
   const projectTypes = [
@@ -44,7 +50,7 @@ const AIQuotePage = () => {
     "Room Addition",
     "Basement Finishing",
     "Outdoor Living Space",
-    "Custom Home Build"
+    "Custom Home Build",
   ]
 
   const roomConditions = [
@@ -52,7 +58,7 @@ const AIQuotePage = () => {
     "Good - Some work required",
     "Fair - Moderate renovation needed",
     "Poor - Major renovation required",
-    "Complete gut renovation needed"
+    "Complete gut renovation needed",
   ]
 
   const designStyles = [
@@ -63,7 +69,7 @@ const AIQuotePage = () => {
     "Industrial",
     "Transitional",
     "Mediterranean",
-    "Craftsman"
+    "Craftsman",
   ]
 
   const budgetRanges = [
@@ -72,7 +78,7 @@ const AIQuotePage = () => {
     "$25,000 - $50,000",
     "$50,000 - $100,000",
     "$100,000 - $200,000",
-    "Over $200,000"
+    "Over $200,000",
   ]
 
   const features = {
@@ -84,7 +90,7 @@ const AIQuotePage = () => {
       "Custom Cabinets",
       "Granite Countertops",
       "Backsplash",
-      "Under-cabinet Lighting"
+      "Under-cabinet Lighting",
     ],
     bathroom: [
       "Double Vanity",
@@ -94,24 +100,24 @@ const AIQuotePage = () => {
       "Custom Tile Work",
       "Skylights",
       "Towel Warmers",
-      "Steam Shower"
-    ]
+      "Steam Shower",
+    ],
   }
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target
 
     if (type === "checkbox") {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
         features: checked
           ? [...prev.features, value]
-          : prev.features.filter(f => f !== value)
+          : prev.features.filter((f) => f !== value),
       }))
     } else {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        [name]: value
+        [name]: value,
       }))
     }
   }
@@ -119,7 +125,7 @@ const AIQuotePage = () => {
   const handleImageUpload = (e, imageType) => {
     const files = Array.from(e.target.files)
     const maxSize = 5 * 1024 * 1024 // 5MB
-    const validFiles = files.filter(file => {
+    const validFiles = files.filter((file) => {
       if (file.size > maxSize) {
         setError(`File ${file.name} is too large. Maximum size is 5MB.`)
         return false
@@ -128,16 +134,19 @@ const AIQuotePage = () => {
     })
 
     // Convert to base64 for preview and sending
-    validFiles.forEach(file => {
+    validFiles.forEach((file) => {
       const reader = new FileReader()
       reader.onloadend = () => {
-        setFormData(prev => ({
+        setFormData((prev) => ({
           ...prev,
-          [imageType]: [...prev[imageType], {
-            name: file.name,
-            data: reader.result,
-            size: file.size
-          }]
+          [imageType]: [
+            ...prev[imageType],
+            {
+              name: file.name,
+              data: reader.result,
+              size: file.size,
+            },
+          ],
         }))
       }
       reader.readAsDataURL(file)
@@ -145,9 +154,9 @@ const AIQuotePage = () => {
   }
 
   const removeImage = (imageType, index) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [imageType]: prev[imageType].filter((_, i) => i !== index)
+      [imageType]: prev[imageType].filter((_, i) => i !== index),
     }))
   }
 
@@ -194,15 +203,15 @@ const AIQuotePage = () => {
         aiPrompt: generateAIPrompt(),
         timestamp: new Date().toISOString(),
         images: {
-          current: formData.currentImages.map(img => ({
+          current: formData.currentImages.map((img) => ({
             name: img.name,
-            size: img.size
+            size: img.size,
           })),
-          inspiration: formData.inspirationImages.map(img => ({
+          inspiration: formData.inspirationImages.map((img) => ({
             name: img.name,
-            size: img.size
-          }))
-        }
+            size: img.size,
+          })),
+        },
       }
 
       // Use configured API endpoint or fallback to mock
@@ -212,17 +221,17 @@ const AIQuotePage = () => {
         ? await fetch(apiUrl, {
             method: "POST",
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
             },
-            body: JSON.stringify(submitData)
+            body: JSON.stringify(submitData),
           }).catch(() => {
             console.warn("AI API failed, using fallback estimate")
             return {
               ok: true,
               json: async () => ({
                 success: true,
-                estimate: generateMockEstimate()
-              })
+                estimate: generateMockEstimate(),
+              }),
             }
           })
         : await new Promise((resolve) => {
@@ -231,8 +240,8 @@ const AIQuotePage = () => {
                 ok: true,
                 json: async () => ({
                   success: true,
-                  estimate: generateMockEstimate()
-                })
+                  estimate: generateMockEstimate(),
+                }),
               })
             }, 2000)
           })
@@ -244,6 +253,11 @@ const AIQuotePage = () => {
         setSuccess(true)
         setStep(4) // Move to results step
 
+        // Generate visualization after estimate
+        setTimeout(() => {
+          generateVisualization()
+        }, 500)
+
         // Also send via Formspree for email notification
         const formspreeData = new FormData()
         formspreeData.append("name", formData.name)
@@ -253,7 +267,7 @@ const AIQuotePage = () => {
 
         await fetch("https://formspree.io/f/mykgnqee", {
           method: "POST",
-          body: formspreeData
+          body: formspreeData,
         }).catch(() => {
           console.log("Formspree submission failed, but estimate was generated")
         })
@@ -263,6 +277,79 @@ const AIQuotePage = () => {
       console.error(err)
     } finally {
       setLoading(false)
+    }
+  }
+
+  const generateVisualization = async () => {
+    setVisualization({ loading: true, imageUrl: null, error: null })
+
+    try {
+      // Create a detailed prompt for the AI image generation
+      const visualizationPrompt = `
+        Create a photorealistic interior design visualization of a ${formData.style || "modern"} style
+        ${formData.projectType} project. The space is ${formData.squareFootage || "150"} square feet.
+        Design features should include: ${formData.features.join(", ") || "standard features"}.
+        Materials: ${formData.materials || "high-quality finishes"}.
+        Color scheme: warm and inviting with neutral tones and ${formData.style === "Modern" ? "clean lines" : "classic details"}.
+        Lighting: natural daylight with accent lighting.
+        Perspective: 3/4 view showing the full space.
+        Quality: photorealistic, high-end architectural visualization, magazine quality.
+      `.trim()
+
+      // Try to generate with Cloudflare AI
+      if (isAIConfigured()) {
+        const response = await fetch("/api/ai-visualize", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            prompt: visualizationPrompt,
+            projectType: formData.projectType,
+            style: formData.style,
+          }),
+        })
+
+        if (response.ok) {
+          const data = await response.json()
+          setVisualization({
+            loading: false,
+            imageUrl: data.imageUrl || "/images/visualization-placeholder.jpg",
+            error: null,
+          })
+          return
+        }
+      }
+
+      // Fallback to placeholder images based on project type
+      const placeholders = {
+        "Kitchen Remodel":
+          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800",
+        "Bathroom Remodel":
+          "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800",
+        "Whole House Renovation":
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "Room Addition":
+          "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+        "Basement Finishing":
+          "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800",
+        "Outdoor Living Space":
+          "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
+        "Custom Home Build":
+          "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+      }
+
+      setVisualization({
+        loading: false,
+        imageUrl:
+          placeholders[formData.projectType] || placeholders["Kitchen Remodel"],
+        error: null,
+      })
+    } catch (error) {
+      console.error("Visualization generation error:", error)
+      setVisualization({
+        loading: false,
+        imageUrl: null,
+        error: "Unable to generate visualization at this time",
+      })
     }
   }
 
@@ -277,54 +364,60 @@ const AIQuotePage = () => {
         timeline: formData.timeline || mississippiEstimate.summary.timeline,
         sqft: formData.squareFootage,
         location: "Mississippi (Regional Pricing)",
-        pricePerSqft: mississippiEstimate.summary.pricePerSqft
+        pricePerSqft: mississippiEstimate.summary.pricePerSqft,
       },
       breakdown: mississippiEstimate.breakdown,
       materials: [
         {
-          item: formData.projectType?.includes("Kitchen") ? "Cabinets" : "Fixtures",
+          item: formData.projectType?.includes("Kitchen")
+            ? "Cabinets"
+            : "Fixtures",
           quantity: "As specified",
-          cost: Math.round(mississippiEstimate.breakdown.materials * 0.3)
+          cost: Math.round(mississippiEstimate.breakdown.materials * 0.3),
         },
         {
-          item: formData.projectType?.includes("Kitchen") ? "Countertops" : "Vanity & Fixtures",
+          item: formData.projectType?.includes("Kitchen")
+            ? "Countertops"
+            : "Vanity & Fixtures",
           quantity: `${sqft} sq ft`,
-          cost: Math.round(mississippiEstimate.breakdown.materials * 0.25)
+          cost: Math.round(mississippiEstimate.breakdown.materials * 0.25),
         },
         {
           item: "Flooring",
           quantity: `${sqft} sq ft`,
-          cost: Math.round(mississippiEstimate.breakdown.materials * 0.2)
+          cost: Math.round(mississippiEstimate.breakdown.materials * 0.2),
         },
         {
-          item: formData.projectType?.includes("Kitchen") ? "Appliances" : "Plumbing",
+          item: formData.projectType?.includes("Kitchen")
+            ? "Appliances"
+            : "Plumbing",
           quantity: "Package",
-          cost: Math.round(mississippiEstimate.breakdown.materials * 0.15)
+          cost: Math.round(mississippiEstimate.breakdown.materials * 0.15),
         },
         {
           item: "Paint & Finishes",
           quantity: "As needed",
-          cost: Math.round(mississippiEstimate.breakdown.materials * 0.1)
-        }
+          cost: Math.round(mississippiEstimate.breakdown.materials * 0.1),
+        },
       ],
       timeline: [
         { phase: "Planning & Permits", duration: "1-2 weeks" },
         { phase: "Demolition", duration: "3-5 days" },
         { phase: "Rough Construction", duration: "2-3 weeks" },
         { phase: "Finishes", duration: "2-3 weeks" },
-        { phase: "Final Inspection", duration: "2-3 days" }
+        { phase: "Final Inspection", duration: "2-3 days" },
       ],
       recommendations: [
         ...mississippiEstimate.regionalNotes,
         "Consider energy-efficient appliances for long-term savings",
         "Use local contractors for better pricing",
-        "Schedule work during off-season for potential discounts"
-      ]
+        "Schedule work during off-season for potential discounts",
+      ],
     }
   }
 
   const renderStep = () => {
-    switch(step) {
+    switch (step) {
       case 1:
         return (
           <div className="step-content">
@@ -373,8 +466,10 @@ const AIQuotePage = () => {
                   required
                 >
                   <option value="">Select Project Type</option>
-                  {projectTypes.map(type => (
-                    <option key={type} value={type}>{type}</option>
+                  {projectTypes.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
                   ))}
                 </select>
               </Col>
@@ -434,8 +529,10 @@ const AIQuotePage = () => {
                   onChange={handleInputChange}
                 >
                   <option value="">Select Condition</option>
-                  {roomConditions.map(condition => (
-                    <option key={condition} value={condition}>{condition}</option>
+                  {roomConditions.map((condition) => (
+                    <option key={condition} value={condition}>
+                      {condition}
+                    </option>
                   ))}
                 </select>
               </Col>
@@ -448,8 +545,10 @@ const AIQuotePage = () => {
                   onChange={handleInputChange}
                 >
                   <option value="">Select Style</option>
-                  {designStyles.map(style => (
-                    <option key={style} value={style}>{style}</option>
+                  {designStyles.map((style) => (
+                    <option key={style} value={style}>
+                      {style}
+                    </option>
                   ))}
                 </select>
               </Col>
@@ -462,15 +561,20 @@ const AIQuotePage = () => {
                   onChange={handleInputChange}
                 >
                   <option value="">Select Budget</option>
-                  {budgetRanges.map(range => (
-                    <option key={range} value={range}>{range}</option>
+                  {budgetRanges.map((range) => (
+                    <option key={range} value={range}>
+                      {range}
+                    </option>
                   ))}
                 </select>
               </Col>
               <Col md="12" className="mb-3">
                 <label>Desired Features</label>
                 <div className="features-grid">
-                  {(formData.projectType.toLowerCase().includes("kitchen") ? features.kitchen : features.bathroom).map(feature => (
+                  {(formData.projectType.toLowerCase().includes("kitchen")
+                    ? features.kitchen
+                    : features.bathroom
+                  ).map((feature) => (
                     <div key={feature} className="form-check">
                       <input
                         type="checkbox"
@@ -530,7 +634,7 @@ const AIQuotePage = () => {
                     className="form-control mb-2"
                     multiple
                     accept="image/*"
-                    onChange={(e) => handleImageUpload(e, 'currentImages')}
+                    onChange={(e) => handleImageUpload(e, "currentImages")}
                   />
                   <div className="image-preview-grid">
                     {formData.currentImages.map((img, index) => (
@@ -539,7 +643,7 @@ const AIQuotePage = () => {
                         <button
                           type="button"
                           className="btn btn-sm btn-danger"
-                          onClick={() => removeImage('currentImages', index)}
+                          onClick={() => removeImage("currentImages", index)}
                         >
                           ×
                         </button>
@@ -557,7 +661,7 @@ const AIQuotePage = () => {
                     className="form-control mb-2"
                     multiple
                     accept="image/*"
-                    onChange={(e) => handleImageUpload(e, 'inspirationImages')}
+                    onChange={(e) => handleImageUpload(e, "inspirationImages")}
                   />
                   <div className="image-preview-grid">
                     {formData.inspirationImages.map((img, index) => (
@@ -566,7 +670,9 @@ const AIQuotePage = () => {
                         <button
                           type="button"
                           className="btn btn-sm btn-danger"
-                          onClick={() => removeImage('inspirationImages', index)}
+                          onClick={() =>
+                            removeImage("inspirationImages", index)
+                          }
                         >
                           ×
                         </button>
@@ -579,8 +685,9 @@ const AIQuotePage = () => {
             </Row>
             <div className="text-center mt-4">
               <p className="text-muted">
-                <strong>Note:</strong> Images are analyzed by AI to provide design suggestions
-                and more accurate cost estimates based on your current space.
+                <strong>Note:</strong> Images are analyzed by AI to provide
+                design suggestions and more accurate cost estimates based on
+                your current space.
               </p>
             </div>
           </div>
@@ -594,7 +701,10 @@ const AIQuotePage = () => {
               <div className="estimate-results">
                 <Alert color="success" className="mb-4">
                   <h4>Estimate Generated Successfully!</h4>
-                  <p>Your detailed estimate has been created and sent to your email.</p>
+                  <p>
+                    Your detailed estimate has been created and sent to your
+                    email.
+                  </p>
                 </Alert>
 
                 <div className="estimate-summary card mb-4">
@@ -603,7 +713,9 @@ const AIQuotePage = () => {
                     <Row>
                       <Col md="4">
                         <strong>Total Estimated Cost:</strong>
-                        <h3 className="text-primary">${estimate.summary.total.toLocaleString()}</h3>
+                        <h3 className="text-primary">
+                          ${estimate.summary.total.toLocaleString()}
+                        </h3>
                       </Col>
                       <Col md="4">
                         <strong>Timeline:</strong>
@@ -624,27 +736,39 @@ const AIQuotePage = () => {
                       <tbody>
                         <tr>
                           <td>Materials</td>
-                          <td className="text-right">${estimate.breakdown.materials.toLocaleString()}</td>
+                          <td className="text-right">
+                            ${estimate.breakdown.materials.toLocaleString()}
+                          </td>
                         </tr>
                         <tr>
                           <td>Labor</td>
-                          <td className="text-right">${estimate.breakdown.labor.toLocaleString()}</td>
+                          <td className="text-right">
+                            ${estimate.breakdown.labor.toLocaleString()}
+                          </td>
                         </tr>
                         <tr>
                           <td>Permits & Fees</td>
-                          <td className="text-right">${estimate.breakdown.permits.toLocaleString()}</td>
+                          <td className="text-right">
+                            ${estimate.breakdown.permits.toLocaleString()}
+                          </td>
                         </tr>
                         <tr>
                           <td>Selected Features</td>
-                          <td className="text-right">${estimate.breakdown.features.toLocaleString()}</td>
+                          <td className="text-right">
+                            ${estimate.breakdown.features.toLocaleString()}
+                          </td>
                         </tr>
                         <tr>
                           <td>Contingency (5%)</td>
-                          <td className="text-right">${estimate.breakdown.contingency.toLocaleString()}</td>
+                          <td className="text-right">
+                            ${estimate.breakdown.contingency.toLocaleString()}
+                          </td>
                         </tr>
                         <tr className="font-weight-bold">
                           <td>Total</td>
-                          <td className="text-right">${estimate.summary.total.toLocaleString()}</td>
+                          <td className="text-right">
+                            ${estimate.summary.total.toLocaleString()}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -667,7 +791,9 @@ const AIQuotePage = () => {
                           <tr key={index}>
                             <td>{item.item}</td>
                             <td>{item.quantity}</td>
-                            <td className="text-right">${item.cost.toLocaleString()}</td>
+                            <td className="text-right">
+                              ${item.cost.toLocaleString()}
+                            </td>
                           </tr>
                         ))}
                       </tbody>
@@ -699,13 +825,105 @@ const AIQuotePage = () => {
                   </div>
                 </div>
 
+                {/* AI Visualization Section */}
+                <div className="visualization-section card mb-4">
+                  <div className="card-body">
+                    <h4>AI-Generated Project Visualization</h4>
+                    <p className="text-muted mb-3">
+                      This AI-generated visualization shows how your{" "}
+                      {formData.projectType} could look with your selected style
+                      and features.
+                    </p>
+
+                    {visualization.loading && (
+                      <div className="text-center py-5">
+                        <div
+                          className="spinner-border text-primary"
+                          role="status"
+                        >
+                          <span className="sr-only">
+                            Generating visualization...
+                          </span>
+                        </div>
+                        <p className="mt-3">
+                          Creating your project visualization...
+                        </p>
+                      </div>
+                    )}
+
+                    {visualization.imageUrl && !visualization.loading && (
+                      <div className="visualization-container">
+                        <img
+                          src={visualization.imageUrl}
+                          alt={`${formData.style} ${formData.projectType} visualization`}
+                          className="visualization-image"
+                        />
+                        <div className="visualization-details mt-3">
+                          <Row>
+                            <Col md="6">
+                              <h6>Design Style</h6>
+                              <p>{formData.style || "Modern"}</p>
+                            </Col>
+                            <Col md="6">
+                              <h6>Key Features</h6>
+                              <p>
+                                {formData.features.length > 0
+                                  ? formData.features.slice(0, 3).join(", ")
+                                  : "Standard features"}
+                              </p>
+                            </Col>
+                          </Row>
+                          <div className="alert alert-info mt-3">
+                            <i className="fas fa-info-circle mr-2"></i>
+                            This is a conceptual visualization. Actual results
+                            may vary based on site conditions, material
+                            availability, and final design choices.
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {visualization.error && !visualization.loading && (
+                      <div className="alert alert-warning">
+                        <i className="fas fa-exclamation-triangle mr-2"></i>
+                        {visualization.error}
+                      </div>
+                    )}
+
+                    {!visualization.loading &&
+                      !visualization.imageUrl &&
+                      !visualization.error && (
+                        <div className="text-center">
+                          <Button
+                            color="outline-primary"
+                            onClick={generateVisualization}
+                          >
+                            Generate Visualization
+                          </Button>
+                        </div>
+                      )}
+                  </div>
+                </div>
+
                 <div className="next-steps text-center">
                   <h4>Ready to Get Started?</h4>
-                  <p>Our team has received your project details and will contact you within 24 hours to discuss your project.</p>
-                  <Button color="primary" size="lg" href="tel:601-954-1306" className="mr-2">
+                  <p>
+                    Our team has received your project details and will contact
+                    you within 24 hours to discuss your project.
+                  </p>
+                  <Button
+                    color="primary"
+                    size="lg"
+                    href="tel:601-954-1306"
+                    className="mr-2"
+                  >
                     Call Us Now
                   </Button>
-                  <Button color="outline-primary" size="lg" onClick={() => window.print()}>
+                  <Button
+                    color="outline-primary"
+                    size="lg"
+                    onClick={() => window.print()}
+                  >
                     Print Estimate
                   </Button>
                 </div>
@@ -727,12 +945,15 @@ const AIQuotePage = () => {
           <div className="intro-section text-center mb-5">
             <h2>Get an Instant AI-Generated Project Estimate</h2>
             <p className="lead">
-              Our advanced AI technology analyzes your project details and provides accurate cost estimates,
-              material lists, and timeline projections in seconds.
+              Our advanced AI technology analyzes your project details and
+              provides accurate cost estimates, material lists, and timeline
+              projections in seconds.
             </p>
             {config.isDevelopment && (
               <div className="mt-3">
-                <small className={isAIConfigured() ? "text-success" : "text-warning"}>
+                <small
+                  className={isAIConfigured() ? "text-success" : "text-warning"}
+                >
                   {isAIConfigured()
                     ? "✅ AI Gateway configured and ready"
                     : "⚠️ AI Gateway not configured - using calculated estimates"}
