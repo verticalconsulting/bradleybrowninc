@@ -137,6 +137,7 @@ $neutral-900: #111827;
       font-size: 1rem;
       transition: all 0.2s;
       background: white;
+      color: $neutral-800;
 
       &:hover {
         border-color: $neutral-400;
@@ -161,6 +162,11 @@ $neutral-900: #111827;
       background-repeat: no-repeat;
       background-size: 1.5em 1.5em;
       padding-right: 2.5rem;
+
+      option {
+        color: $neutral-800;
+        background: white;
+      }
     }
 
     textarea.form-control {

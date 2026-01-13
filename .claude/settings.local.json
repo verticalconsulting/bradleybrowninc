@@ -29,7 +29,8 @@
       "Bash(sh .husky/pre-commit:*)",
       "Bash(git log:*)",
       "Bash(gatsby build)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(gatsby develop)"
     ]
   }
 }

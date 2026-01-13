@@ -2,11 +2,16 @@
 // Centralized location for managing images, videos, and other reusable content
 
 // ============================================
-// HERO SECTION
+// IMPORTS
 // ============================================
 // import companyVideo from "../images/company.mp4"
 import heroImage from "../images/company.jpg" // Uncomment to use image
+import logo from "../images/brand-logo.png"
+import aboutImage from "../images/about.jpg"
 
+// ============================================
+// HERO SECTION
+// ============================================
 export const heroConfig = {
   // Set to "video" or "image"
   backgroundType: "image",
@@ -23,13 +28,10 @@ export const heroConfig = {
 // ============================================
 // IMAGES
 // ============================================
-// Import your images here for easy management
-import logo from "../images/brand-logo.png"
-import aboutImage from "../images/about.jpg"
 
 export const images = {
-   logo: logo,
-   aboutImage: aboutImage,
+  logo: logo,
+  aboutImage: aboutImage,
   // Add more images as needed
 }
 
