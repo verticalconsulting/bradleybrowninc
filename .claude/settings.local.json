@@ -30,7 +30,10 @@
       "Bash(git log:*)",
       "Bash(gatsby build)",
       "Bash(npm install:*)",
-      "Bash(gatsby develop)"
+      "Bash(gatsby develop)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)"
     ]
   }
 }
