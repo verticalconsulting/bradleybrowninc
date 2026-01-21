@@ -41,6 +41,7 @@ export const images = {
 export const company = {
   name: "Bradley Brown Inc",
   tagline: "Building Quality Homes Since 2019",
+  phone: "601-954-1306",
   // Add other company-related constants
 }
 
@@ -87,5 +88,6 @@ export const routes = {
 export const labels = {
   heroButton1: "Our Services",
   heroButton2: "Request a Quote",
+  heroButton3: "Call Now",
   // Add more labels as needed
 }
