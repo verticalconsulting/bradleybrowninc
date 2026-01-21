@@ -39,22 +39,24 @@
     "address": "Jackson, Mississippi"
   },
   {
-    "title": "Luxury Master Bathroom Suite",
+    "title": "Bachelor Master Makeover",
     "slug": "luxury-master-bathroom-suite",
     "category": ["remodeling", "interior design"],
-    "description": "Spa-inspired master bathroom featuring a walk-in shower with rainfall fixtures, soaking tub, double vanity with custom lighting, heated floors, and premium tile work throughout.",
+    "description": "Complete transformation of a bachelor's master bedroom suite featuring modern masculine design elements, custom built-in entertainment center, sleek bathroom with walk-in shower, smart home integration, and sophisticated color palette combining charcoal grays with warm wood accents. This project showcases the perfect blend of functionality and style for the modern bachelor lifestyle.",
     "img": {
       "src": [
-        "https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+        "../bachelor-master-after.jpeg",
+        "../bachelor-master-before.jpeg",
+        "../bachelor-master-after.jpeg"
       ],
-      "orig": "https://unsplash.com/photos/4ojhpgKpS68",
-      "author": "Photo by Pixasquare on Unsplash"
+      "orig": "../bachelor-master-after.jpeg",
+      "author": "Photo by Bradley Brown Inc"
     },
-    "amount": "$62,000.00",
-    "duration": "35 Calendar days",
-    "completionDate": "Sept. 8, 2023",
-    "owner": "The Mitchell Residence",
-    "address": "Madison, Mississippi"
+    "amount": "$78,500.00",
+    "duration": "42 Calendar days",
+    "completionDate": "Dec. 15, 2023",
+    "owner": "Mr. James Richardson",
+    "address": "Brandon, Mississippi"
   },
   {
     "title": "Outdoor Living & Entertainment Deck",

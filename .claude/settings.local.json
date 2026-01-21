@@ -33,7 +33,10 @@
       "Bash(gatsby develop)",
       "Bash(netstat:*)",
       "Bash(findstr:*)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Read(//g/My Drive/Bradley Brown INC/brand_guide brad/Photography Assets/iCloud Photos from Brad Brown/**)",
+      "Bash(copy \"g:/My Drive/Bradley Brown INC/brand_guide brad/Photography Assets/iCloud Photos from Brad Brown/project1b.jpeg\" \"C:/Users/ogDevOps/sources/bradleybrowninc/src/images/bachelor-master-before.jpeg\")",
+      "Bash(copy \"g:/My Drive/Bradley Brown INC/brand_guide brad/Photography Assets/iCloud Photos from Brad Brown/project1f.jpeg\" \"C:/Users/ogDevOps/sources/bradleybrowninc/src/images/bachelor-master-after.jpeg\")"
     ]
   }
 }
