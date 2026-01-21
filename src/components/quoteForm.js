@@ -10,14 +10,14 @@ const QuoteForm = () => {
     project_type: "",
     start_timeline: "",
     address: "",
-    message: ""
+    message: "",
   })
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }))
   }
 
@@ -26,15 +26,19 @@ const QuoteForm = () => {
       <section className="quote-form-section">
         <Container>
           <div className="quote-form-content">
-            <h2 className="text-center mb-4 font-weight-bold">Request a Quote</h2>
+            <h2 className="text-center mb-4 font-weight-bold">
+              Request a Quote
+            </h2>
             <p className="text-center text-muted mb-5">
-              Ready to start your project? Fill out the form below and our team will get back to you within 24 hours.
+              Ready to start your project? Fill out the form below and our team
+              will get back to you within 24 hours.
             </p>
-            <form
-              action="https://formspree.io/f/mykgnqee"
-              method="POST"
-            >
-              <input type="hidden" name="_next" value="https://bradleybrowninc.com/thank-you" />
+            <form action="https://formspree.io/f/mykgnqee" method="POST">
+              <input
+                type="hidden"
+                name="_next"
+                value="https://bradleybrowninc.com/thank-you"
+              />
               <Row>
                 <Col md="6" className="mb-4">
                   <input
@@ -71,13 +75,15 @@ const QuoteForm = () => {
                 </Col>
                 <Col md="6" className="mb-4">
                   <select
-                    className="form-control"
+                    className={`form-control ${formData.project_type ? "has-value" : ""}`}
                     name="project_type"
                     value={formData.project_type}
                     onChange={handleChange}
                     required
                   >
-                    <option value="">What type of project are you considering?*</option>
+                    <option value="">
+                      What type of project are you considering?*
+                    </option>
                     <option value="Kitchen">Kitchen</option>
                     <option value="Bath">Bath</option>
                     <option value="Living Room">Living Room</option>
@@ -89,7 +95,7 @@ const QuoteForm = () => {
                 </Col>
                 <Col md="6" className="mb-4">
                   <select
-                    className="form-control"
+                    className={`form-control ${formData.start_timeline ? "has-value" : ""}`}
                     name="start_timeline"
                     value={formData.start_timeline}
                     onChange={handleChange}
