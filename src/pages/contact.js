@@ -193,8 +193,13 @@ const ContactPage = () => {
                     Telephone/Fax
                   </p>
                   <Row className="ml-0">
-                    <Telephone className="fill-svg fill-color" />{" "}
-                    {contact.telephone}
+                    <a
+                      href={`tel:${contact.telephone.replace(/\D/g, "")}`}
+                      className="text-dark text-decoration-none"
+                    >
+                      <Telephone className="fill-svg fill-color" />{" "}
+                      {contact.telephone}
+                    </a>
                   </Row>
                 </section>
                 <section className="mobilephone border-bottom mb-4 pb-4">
@@ -202,8 +207,13 @@ const ContactPage = () => {
                     Mobile Phone
                   </p>
                   <Row className="ml-0">
-                    <Smartphone className="stroke-svg stroke-color" />{" "}
-                    {contact.mobile}
+                    <a
+                      href={`tel:${contact.mobile.replace(/\D/g, "")}`}
+                      className="text-dark text-decoration-none"
+                    >
+                      <Smartphone className="stroke-svg stroke-color" />{" "}
+                      {contact.mobile}
+                    </a>
                   </Row>
                 </section>
                 <section className="email border-bottom mb-4 pb-4">
