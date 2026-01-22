@@ -32,7 +32,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'AW-17864041271');`,
+  gtag('config', 'AW-17864041271');
+  gtag('config', 'AW-17766361797');
+  gtag('config', 'G-FEQZWHQV5K');`,
       },
     }),
   ])
