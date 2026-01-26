@@ -33,7 +33,7 @@ const Hero = ({
               <Button href="#quote" outline>
                 {labels.heroButton2}
               </Button>
-              <Button href={`tel:${company.phone}`} color="success">
+              <Button href={`tel:${company.phone}`} color="info">
                 {labels.heroButton3}
               </Button>
             </section>
