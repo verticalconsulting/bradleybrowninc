@@ -16,28 +16,34 @@ else
 
   for file in $STAGED_CSS_FILES; do
   if [ -f "$file" ]; then
-    # Extract url() references
-    while IFS= read -r line; do
-      # Extract the path from url()
-      url=$(echo "$line" | grep -oP '(?<=url\()["\x27]?\.\.\/[^)]*["\x27]?(?=\))')
+    # Check if the file contains any url() references
+    if grep -q 'url(' "$file" 2>/dev/null; then
+      # Extract url() references
+      grep 'url(' "$file" | while IFS= read -r line; do
+        # Extract the path from url() - simplified regex for better compatibility
+        urls=$(echo "$line" | grep -o 'url([^)]*)')
 
-      if [ -n "$url" ]; then
-        # Clean up the URL
-        clean_url=$(echo "$url" | sed 's/["\x27]//g')
+        for url_match in $urls; do
+          # Extract just the path, removing url() wrapper and quotes
+          clean_url=$(echo "$url_match" | sed 's/url(//g' | sed 's/)//g' | sed 's/["\x27]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 
-        # Get the directory of the current file
-        file_dir=$(dirname "$file")
+          # Only check relative paths that start with ../ or ./
+          if echo "$clean_url" | grep -qE '^\.\./|^\./'; then
+            # Get the directory of the current file
+            file_dir=$(dirname "$file")
 
-        # Resolve the full path
-        full_path="$file_dir/$clean_url"
+            # Resolve the full path
+            full_path="$file_dir/$clean_url"
 
-        # Check if file exists
-        if [ ! -f "$full_path" ]; then
-          echo "❌ Missing file: $full_path (referenced in $file)"
-          MISSING_FILES=$((MISSING_FILES + 1))
-        fi
-      fi
-    done < "$file"
+            # Check if file exists
+            if [ ! -f "$full_path" ]; then
+              echo "❌ Missing file: $full_path (referenced in $file)"
+              MISSING_FILES=$((MISSING_FILES + 1))
+            fi
+          fi
+        done
+      done
+    fi
   fi
 done
 

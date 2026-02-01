@@ -16,15 +16,16 @@
     "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sass": "^6.15.0",
     "gatsby-plugin-sharp": "^5.15.0",
+    "gatsby-plugin-sitemap": "^6.15.0",
     "gatsby-source-filesystem": "^5.15.0",
     "gatsby-transformer-json": "^5.15.0",
     "gatsby-transformer-sharp": "^5.15.0",
-    "sass": "^1.96.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
-    "reactstrap": "^9.2.3"
+    "reactstrap": "^9.2.3",
+    "sass": "^1.96.0"
   },
   "devDependencies": {
     "husky": "^8.0.3",

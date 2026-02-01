@@ -52,7 +52,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'AW-17864041271');`,
+  gtag('config', 'AW-17864041271');
+  gtag('config', 'AW-17766361797');
+  gtag('config', 'G-FEQZWHQV5K');`,
           }}
         />
         {/* Klarna On-Site Messaging SDK */}

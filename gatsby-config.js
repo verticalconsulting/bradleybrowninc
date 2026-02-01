@@ -3,6 +3,7 @@ module.exports = {
     title: `Bradley Brown Inc`,
     fullTitle: `Bradley Brown Inc - Licensed & Insured Custom Home Builder`,
     description: `No job is too big, or too small. Licensed and insured custom home builder serving Rankin, Madison, Hinds, and Scott Counties in Mississippi.`,
+    siteUrl: `https://bradleybrowninc.com`,
     about: `Bradley Brown Inc is owned by Brad Brown, who brings decades of experience in custom home building, remodeling, and just about everything under the sun when it relates to construction. He pays attention to the details and treats every project like it's his own. While not always the cheapest, what you get is fine craftsmanship that is built to last.`,
     email: `bradleybrowninc@gmail.com`,
     social: {
@@ -95,6 +96,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

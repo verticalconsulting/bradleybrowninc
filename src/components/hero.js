@@ -1,15 +1,14 @@
 import React from "react"
 import { Container } from "reactstrap"
 import { Button } from "reactstrap"
-import { Link } from "gatsby"
 import "./hero.scss"
-import { heroConfig, labels } from "../config/siteConfig"
+import { heroConfig, labels, company } from "../config/siteConfig"
 
 const Hero = ({
   title,
   description,
   backgroundType = heroConfig.backgroundType,
-  backgroundSrc = heroConfig.backgroundSrc
+  backgroundSrc = heroConfig.backgroundSrc,
 }) => {
   // Use provided props or default to config values
   const source = backgroundSrc
@@ -17,13 +16,7 @@ const Hero = ({
   return (
     <div className="hero" id="hero">
       {backgroundType === "video" ? (
-        <video
-          className="hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
+        <video className="hero-video" autoPlay loop muted playsInline>
           <source src={source} type="video/mp4" />
         </video>
       ) : (
@@ -37,7 +30,12 @@ const Hero = ({
           <main className="hero-content">
             <section className="hero-buttons">
               <Button href="#services">{labels.heroButton1}</Button>
-              <Button href="#quote" outline>{labels.heroButton2}</Button>
+              <Button href="#quote" outline>
+                {labels.heroButton2}
+              </Button>
+              <Button href={`tel:${company.phone}`} color="info">
+                {labels.heroButton3}
+              </Button>
             </section>
             <h1 className="title">{title}</h1>
             <hr className="h-separator" />

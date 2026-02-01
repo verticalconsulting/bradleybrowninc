@@ -40,7 +40,8 @@ const ContactPage = () => {
     }
   `)
 
-  const { title, email, social, contact, address, serviceAreas, map } = data.site.siteMetadata
+  const { title, email, social, contact, address, serviceAreas, map } =
+    data.site.siteMetadata
   return (
     <section id="contact">
       <PageHeader title="Contact" />
@@ -52,15 +53,16 @@ const ContactPage = () => {
                 Get in Touch
               </h2>
               <p className="contact-description font-size-90 text-center text-muted mb-4">
-                No job is too big, or too small! As a licensed and insured builder,
-                we're here to help with all your home remodeling needs. Contact us
-                by phone, email, or use our quick contact form below.
+                No job is too big, or too small! As a licensed and insured
+                builder, we're here to help with all your home remodeling needs.
+                Contact us by phone, email, or use our quick contact form below.
               </p>
-              <form
-                action="https://formspree.io/f/mykgnqee"
-                method="POST"
-              >
-                <input type="hidden" name="_next" value="https://bradleybrowninc.com/thank-you" />
+              <form action="https://formspree.io/f/mykgnqee" method="POST">
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="https://bradleybrowninc.com/thank-you"
+                />
                 <Row>
                   <Col className="mb-4" md="6">
                     <input
@@ -79,6 +81,37 @@ const ContactPage = () => {
                       id="userName"
                       placeholder="Phone"
                     />
+                  </Col>
+                  <Col className="mb-4" md="12">
+                    <label htmlFor="projectType" className="form-label">
+                      What type of project are you considering?
+                    </label>
+                    <select
+                      className="form-control"
+                      name="projectType"
+                      id="projectType"
+                    >
+                      <option value="">Select a project type</option>
+                      <option value="Kitchen Remodel">Kitchen Remodel</option>
+                      <option value="Bathroom Remodel">Bathroom Remodel</option>
+                      <option value="Whole House Renovation">
+                        Whole House Renovation
+                      </option>
+                      <option value="Room Addition">Room Addition</option>
+                      <option value="Basement Finishing">
+                        Basement Finishing
+                      </option>
+                      <option value="Outdoor Living Space">
+                        Outdoor Living Space
+                      </option>
+                      <option value="Custom Home Build">
+                        Custom Home Build
+                      </option>
+                      <option value="Repair/Maintenance">
+                        Repair/Maintenance
+                      </option>
+                      <option value="Other">Other</option>
+                    </select>
                   </Col>
                   <Col className="mb-1" md="12">
                     <textarea
@@ -160,8 +193,13 @@ const ContactPage = () => {
                     Telephone/Fax
                   </p>
                   <Row className="ml-0">
-                    <Telephone className="fill-svg fill-color" />{" "}
-                    {contact.telephone}
+                    <a
+                      href={`tel:${contact.telephone.replace(/\D/g, "")}`}
+                      className="text-dark text-decoration-none"
+                    >
+                      <Telephone className="fill-svg fill-color" />{" "}
+                      {contact.telephone}
+                    </a>
                   </Row>
                 </section>
                 <section className="mobilephone border-bottom mb-4 pb-4">
@@ -169,8 +207,13 @@ const ContactPage = () => {
                     Mobile Phone
                   </p>
                   <Row className="ml-0">
-                    <Smartphone className="stroke-svg stroke-color" />{" "}
-                    {contact.mobile}
+                    <a
+                      href={`tel:${contact.mobile.replace(/\D/g, "")}`}
+                      className="text-dark text-decoration-none"
+                    >
+                      <Smartphone className="stroke-svg stroke-color" />{" "}
+                      {contact.mobile}
+                    </a>
                   </Row>
                 </section>
                 <section className="email border-bottom mb-4 pb-4">
@@ -186,11 +229,16 @@ const ContactPage = () => {
                   </Row>
                 </section>
                 <section className="service-areas mb-4 pb-4">
-                  <p className="text-uppercase font-weight-bold">Service Areas</p>
+                  <p className="text-uppercase font-weight-bold">
+                    Service Areas
+                  </p>
                   <ul className="ml-0 pl-3">
-                    {serviceAreas && serviceAreas.map((area, index) => (
-                      <li key={index} className="text-muted">{area}</li>
-                    ))}
+                    {serviceAreas &&
+                      serviceAreas.map((area, index) => (
+                        <li key={index} className="text-muted">
+                          {area}
+                        </li>
+                      ))}
                   </ul>
                 </section>
               </aside>

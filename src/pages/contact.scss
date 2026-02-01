@@ -7,15 +7,34 @@
   }
   .contact-form {
     input,
-    textarea {
+    textarea,
+    select {
       background-color: #f5f5f5;
+      color: #333;
     }
 
     input,
     textarea,
+    select,
     .btn-block {
       border-radius: 0px !important;
       border: none !important;
+    }
+
+    select.form-control {
+      min-height: 48px;
+      height: auto;
+      line-height: 1.5;
+      cursor: pointer;
+      appearance: auto;
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+      display: block;
+      font-size: 0.95rem;
     }
 
     .btn-block:hover {
