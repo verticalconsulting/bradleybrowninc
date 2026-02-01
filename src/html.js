@@ -27,6 +27,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-17864041271"
         ></script>
+        {/* Event snippet for Call from Website conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17864041271/W3ODCL6rw-kbELfGnsZC',
+      'event_callback': callback
+  });
+  return false;
+}`,
+          }}
+        />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
