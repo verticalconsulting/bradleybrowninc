@@ -11,50 +11,6 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M3W35JTV');`,
-          }}
-        />
-        {/* End Google Tag Manager */}
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17864041271"
-        ></script>
-        {/* Event snippet for Call from Website conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17864041271/W3ODCL6rw-kbELfGnsZC',
-      'event_callback': callback
-  });
-  return false;
-}`,
-          }}
-        />
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17864041271');`,
-          }}
-        />
         {/* Klarna On-Site Messaging SDK */}
         <script
           async
@@ -64,14 +20,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3W35JTV"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-          }}
-        />
-        {/* End Google Tag Manager (noscript) */}
         {props.preBodyComponents}
         <div
           key={`body`}
